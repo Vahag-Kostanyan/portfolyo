@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Image } from '@chakra-ui/react'
 import React from 'react'
+import myPhoto from "../../imags/myPhoto.png"
 
 const HomeContent = () => {
   return (
@@ -33,7 +34,9 @@ const HomeContent = () => {
         alignItems="center"
         justifyContent="center"
         >
-        <Image ></Image>
+        <Image src={myPhoto} alt='Dan Abramov' 
+               width="2xl" 
+        ></Image>
 
       </Flex>
 
