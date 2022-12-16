@@ -12,14 +12,15 @@ const AnimatedRoutes = () => {
     const location = useLocation();
 
     return (
-        <AnimatePresence>        <Routes location={location} key={location.pathname}>
-            <Route path='/' element={<Home />} />
-            <Route path='/aboutme' element={<AboutMe />} />
-            <Route path='/skils' element={<Skils />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/contacts' element={<Contacts />} />
-            <Route path='*' element={<NoteFound />} />
-        </Routes>
+        <AnimatePresence>
+            <Routes location={location} key={location.pathname}>
+                <Route path='/' element={<Home />} />
+                <Route path='/aboutme' element={<AboutMe />} />
+                <Route path='/skils' element={<Skils />} />
+                <Route path='/projects' element={<Projects />} />
+                <Route path='/contacts' element={<Contacts />} />
+                <Route path='*' element={<NoteFound />} />
+            </Routes>
         </AnimatePresence>
 
     )
