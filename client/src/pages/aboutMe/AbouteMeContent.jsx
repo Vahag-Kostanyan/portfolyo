@@ -4,43 +4,103 @@ import myPhoto from "../../imags/myPhoto.png"
 
 const AbouteMeContent = () => {
   return (
-    <Flex 
-    gap="50px"
-    flexWrap="wrap"
-    alignItems="center"
-    justifyContent="center"
-    height="100vh"
-    >
-    
-    <Flex 
-      flex="5"
-      boxSizing="content-box"
-      gap={5}
-      padding="0 50px 300px 50px"
-      flexDirection="column"
-    >
-      <Heading as="h1" size="2xl">HI I'M VAHAGN KOSTANYAN</Heading>
-      <Heading as="h1" fontWeight="500" size="xl">I am Web Developer</Heading>
-      <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos 
-      amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
-       necessitatibus.</Heading>
-
-    </Flex>
-
-
-
-    <Flex 
-      flex="7"
+    <Flex
+      gap="50px"
+      flexWrap="wrap"
       alignItems="center"
       justifyContent="center"
-      >
-      <Image src={myPhoto} alt='Dan Abramov' 
-             width="2xl" 
-      ></Image>
+      flexDirection="column"
+      height="90vh"
+    >
+      <Heading as="h1">Aboute me</Heading>
 
+      <Flex>
+        <Flex
+          flexDirection="column"
+          gap="30px"
+        >
+          <Heading as="h4">PERSONAL INFOS</Heading>
+          <Flex
+            gap="90px"
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              // justifyContent="flex-start"
+              gap="20px"
+              alignItems="flex-start"
+            >
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  First Name:
+                </Heading>
+                <Heading fontSize="20px" as="p">Vahagn</Heading>
+              </Flex>
+
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  Age:
+                </Heading>
+                <Heading fontSize="20px" as="p">17 Years</Heading>
+              </Flex>
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  First Name:
+                </Heading>
+                <Heading fontSize="20px" as="p">Vahagn</Heading>
+              </Flex>
+            </Box>
+            <Box>
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  Last Name:
+                </Heading>
+                <Heading fontSize="20px" as="p">Kostanyan</Heading>
+              </Flex>
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  Last Name:
+                </Heading>
+                <Heading fontSize="20px" as="p">Kostanyan</Heading>
+              </Flex>
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                gap="10px"
+              >
+                <Heading fontSize="22px" as="p">
+                  Last Name:
+                </Heading>
+                <Heading fontSize="20px" as="p">Kostanyan</Heading>
+              </Flex>
+            </Box>
+          </Flex>
+        </Flex>
+        <Flex>
+
+        </Flex>
+      </Flex>
     </Flex>
-
-  </Flex>
   )
 }
 

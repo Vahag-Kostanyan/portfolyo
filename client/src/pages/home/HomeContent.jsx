@@ -24,7 +24,7 @@ const HomeContent = () => {
       flexWrap="wrap"
       alignItems="center"
       justifyContent="end"
-      height="100vh"
+      height="90vh"
     >
 
       <Flex

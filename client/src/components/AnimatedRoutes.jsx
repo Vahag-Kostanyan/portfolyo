@@ -7,12 +7,21 @@ import Contacts from "../pages/contacts/Index";
 import NoteFound from '../components/NoteFound';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
+import NavLink from './NavLink';
+import { ChakraProvider, ColorModeProvider, CSSReset,theme } from '@chakra-ui/react';
 
 const AnimatedRoutes = () => {
     const location = useLocation();
 
     return (
         <AnimatePresence>
+            <ChakraProvider theme={theme}>
+                <ColorModeProvider>
+                    <CSSReset />
+                    <NavLink />
+                </ColorModeProvider>
+            </ChakraProvider>
+
             <Routes location={location} key={location.pathname}>
                 <Route path='/' element={<Home />} />
                 <Route path='/aboutme' element={<AboutMe />} />
