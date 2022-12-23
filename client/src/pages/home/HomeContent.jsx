@@ -3,7 +3,7 @@ import React from 'react'
 import myPhoto from "../../imags/myPhoto.png"
 
 const animation = keyframes`
-  0% { opacity: 0; transform: translateY(-100px); }
+  0% { opacity: 0; transform: translateY(200px); }
   25% { opacity: 1; transform: translateY(0px); }
   75% { opacity: 1; transform: translateY(0px); }
 

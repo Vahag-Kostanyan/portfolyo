@@ -10,6 +10,7 @@ const SkilsContent = () => {
     alignItems="center"
     justifyContent="center"
     height="90vh"
+    flexDirection="column"
     >
     
     <Flex
@@ -23,7 +24,6 @@ const SkilsContent = () => {
     
     <Flex 
       fontSize="10px"
-      
     >
 
 
