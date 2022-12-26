@@ -50,7 +50,7 @@ const NavLink = () => {
         )}
 
 
-        {location.pathname.includes("aboutme") ? (
+        {/* {location.pathname.includes("aboutme") ? (
           <LinkBox
             as='article'
             color={color}
@@ -70,7 +70,7 @@ const NavLink = () => {
             <Link to="/aboutme">About me</Link>
 
           </LinkBox>
-        )}
+        )} */}
 
 
         {location.pathname.includes("skils") ? (

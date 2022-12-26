@@ -4,7 +4,12 @@ import HomeContent from './HomeContent'
 import { motion } from 'framer-motion'
 
 function Index() {
-
+  const theme = extendTheme({
+    fonts: {
+      heading: `Roboto`,
+      body: `Roboto`,
+    },
+  })
   return (
     <motion.div
 
