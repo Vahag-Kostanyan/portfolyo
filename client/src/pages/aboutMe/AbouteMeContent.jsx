@@ -1,5 +1,6 @@
 import { Box, Flex, Heading, Image } from '@chakra-ui/react'
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import myPhoto from "../../imags/myPhoto.png"
 
 const AbouteMeContent = () => {
@@ -17,6 +18,7 @@ const AbouteMeContent = () => {
     { key: "Adress", value: "Armenia Armavir" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
   ];
+
 
   return (
     <Flex

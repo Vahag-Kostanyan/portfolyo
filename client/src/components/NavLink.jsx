@@ -1,7 +1,8 @@
-import { Box, Button, Flex, LinkBox, IconButton, useColorMode } from '@chakra-ui/react'
+import { Box, Button, Flex, LinkBox, IconButton, useColorMode, Img, Select } from '@chakra-ui/react'
 import { SunIcon, Icon } from "@chakra-ui/icons"
 import { BsFillMoonFill } from "react-icons/bs";
-
+import armeniaFlag from "../imags/flag-for-armenia_1f1e6-1f1f2.png";
+import angliaFlag from "../imags/download.png"
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -16,7 +17,11 @@ const NavLink = () => {
     <Flex width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
 
 
-      <Box>
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        gap="30px"
+      >
         <IconButton onClick={toggleColorMode} >
           {colorMode === "light" ? (
             <Icon as={BsFillMoonFill} />
@@ -24,7 +29,26 @@ const NavLink = () => {
             <Icon as={SunIcon} />
           )}
         </IconButton>
-      </Box>
+
+        <Flex 
+        alignItems="center"
+        justifyContent="center"
+        gap="10px"
+        >
+          <Select placeholder='Select language'>
+          <option >
+              <Img src={armeniaFlag} width="5px"/>
+              English
+            </option>
+            <option>
+              Armenia
+            </option>
+          </Select>
+              {/* <Img src={armeniaFlag} width="40px"/>
+              <Img src={angliaFlag} width="40px" height="25px"/> */}
+
+        </Flex>
+      </Flex>
       <Box display="flex" gap={8} fontSize="18px">
 
         {location.pathname === "/" ? (

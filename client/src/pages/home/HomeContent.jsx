@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Image, keyframes } from '@chakra-ui/react'
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import myPhoto from "../../imags/myPhoto.png"
 
 
@@ -30,7 +31,7 @@ const animation = keyframes`
 
 
 const HomeContent = () => {
-
+  const {t} = useTranslation();
   
 
 
@@ -61,7 +62,7 @@ const HomeContent = () => {
         >
           <Heading
             as="h1" size="2xl"
-          >HI I'M VAHAGN KOSTANYAN</Heading>
+          >HI I'M VAHAGN KOSTANYAN {t("welcome_to_react")}</Heading>
           <Heading as="h1"   fontWeight="500" size="xl">I am Web Developer</Heading>
           <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
