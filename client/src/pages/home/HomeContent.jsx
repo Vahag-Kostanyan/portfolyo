@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import myPhoto from "../../imags/myPhoto.png"
 
 
-
 let leftList = [
   { key: "Age", value: "17" },
   { key: "Phone", value: "+374 19 58 68" },
@@ -62,7 +61,7 @@ const HomeContent = () => {
         >
           <Heading
             as="h1" size="2xl"
-          >HI I'M VAHAGN KOSTANYAN {t("welcome_to_react")}</Heading>
+          >{t("nameSurname")} </Heading>
           <Heading as="h1"   fontWeight="500" size="xl">I am Web Developer</Heading>
           <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos

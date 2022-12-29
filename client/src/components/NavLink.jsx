@@ -5,12 +5,25 @@ import armeniaFlag from "../imags/flag-for-armenia_1f1e6-1f1f2.png";
 import angliaFlag from "../imags/download.png"
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import i18next from 'i18next';
 
 const NavLink = () => {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
   const location = useLocation()
+
+
+  const language = i18next.language
+  const LanguagesChange = (e) => {
+    const value = e.target.value;
+
+    if(value == "English"){
+      i18next.changeLanguage("en")
+    }else if(value == "Armenia"){
+      i18next.changeLanguage("am")
+    }
+  }
 
   const color = "teal.500";
   return (
@@ -30,23 +43,19 @@ const NavLink = () => {
           )}
         </IconButton>
 
-        <Flex 
-        alignItems="center"
-        justifyContent="center"
-        gap="10px"
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          gap="10px"
         >
-          <Select placeholder='Select language'>
-          <option >
-              <Img src={armeniaFlag} width="5px"/>
+          <Select onChange={LanguagesChange} placeholder='Select language'>
+            <option disabled = {language !== "en" ? false : true} >
               English
             </option>
-            <option>
+            <option disabled = {language !== "am" ? false : true}>
               Armenia
             </option>
           </Select>
-              {/* <Img src={armeniaFlag} width="40px"/>
-              <Img src={angliaFlag} width="40px" height="25px"/> */}
-
         </Flex>
       </Flex>
       <Box display="flex" gap={8} fontSize="18px">
