@@ -3,20 +3,21 @@ import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useCol
 import HomeContent from './HomeContent'
 import { motion } from 'framer-motion'
 
-function Index() {
+function Index({nextPage}) {
   const theme = extendTheme({
     fonts: {
       heading: `Roboto`,
       body: `Roboto`,
     },
   })
+
+  console.log(nextPage);
   return (
     <motion.div
-
       initial={{width: 0}}
       animate={{width: "100%"}}
-      exit={{x: window.innerWidth, transition:{duration: 0.4}}}
-    >
+      exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
+      >
     <ChakraProvider theme={theme}>
         <ColorModeProvider>
             <CSSReset/>

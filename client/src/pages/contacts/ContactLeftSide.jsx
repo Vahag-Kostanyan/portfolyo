@@ -7,7 +7,7 @@ let leftList = [
     { key: "Linkdin", value: "vahag kostanyan" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
     { key: "Adress", value: "Armenia Armavir" },
-  
+    { key: "Github", value: "Vahag-Kostanyan" },
   ];
 
 const ContactLeftSide = () => {

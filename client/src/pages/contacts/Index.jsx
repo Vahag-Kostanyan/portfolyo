@@ -3,13 +3,13 @@ import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useCol
 import ContactsContent from './ContactsContent'
 import { motion } from 'framer-motion'
 
-function Index() {
+function Index({nextPage}) {
 
   return (
     <motion.div
     initial={{width: 0}}
     animate={{width: "100%"}}
-    exit={{x: window.innerWidth, transition:{duration: 0.4}}}
+    exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
     >
     <ChakraProvider theme={theme}>
         <ColorModeProvider>

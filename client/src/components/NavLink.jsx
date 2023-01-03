@@ -1,17 +1,18 @@
 import { Box, Button, Flex, LinkBox, IconButton, useColorMode, Img, Select } from '@chakra-ui/react'
 import { SunIcon, Icon } from "@chakra-ui/icons"
 import { BsFillMoonFill } from "react-icons/bs";
-import armeniaFlag from "../imags/flag-for-armenia_1f1e6-1f1f2.png";
-import angliaFlag from "../imags/download.png"
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import i18next from 'i18next';
 
-const NavLink = () => {
+const NavLink = ({setNextPage}) => {
 
   const { colorMode, toggleColorMode } = useColorMode()
 
   const location = useLocation()
+  let navigate = useNavigate();
+
+
 
 
   const language = i18next.language
@@ -22,6 +23,42 @@ const NavLink = () => {
       i18next.changeLanguage("en")
     }else if(value == "Armenia"){
       i18next.changeLanguage("am")
+    }
+  }
+
+  // navigate("/Skils")
+  function pageNavigate(e) {
+    e.preventDefault();
+    const arr = ["/", "/Skils", "/Projects", "/Contacts"];
+    let current, next;
+    
+    let nextRoute = "";
+    if(e.target.innerHTML === "Home"){
+      nextRoute = "/";
+    }else{
+      nextRoute = "/" + e.target.innerHTML;
+    }
+
+    arr.forEach((item, key) => {
+        if(item == nextRoute){
+          next = key;
+        }
+        if(item == location.pathname){
+          current = key;
+        }
+    });
+
+    if(next > current){
+      setNextPage("right")
+      setTimeout(() => {
+        navigate(nextRoute)
+      }, 5)
+
+    }else if(next < current){
+      setNextPage("left")
+      setTimeout(() => {
+        navigate(nextRoute)
+      }, 5)
     }
   }
 
@@ -60,116 +97,48 @@ const NavLink = () => {
       </Flex>
       <Box display="flex" gap={8} fontSize="18px">
 
-        {location.pathname === "/" ? (
           <LinkBox
             as='article'
-            color={color}
-
+            color={ location.pathname === "/" ? color : ""}
+            
             _hover={{
               color: "teal.500",
             }}
           >
-            <Link to="/">Home</Link>
+            <Link onClick={pageNavigate} >Home</Link> 
           </LinkBox>
-        ) : (
-          <LinkBox
-            _hover={{
-              color: "teal.500",
-            }}
-          >
-            <Link to="/">Home</Link>
 
-          </LinkBox>
-        )}
-
-
-        {/* {location.pathname.includes("aboutme") ? (
           <LinkBox
             as='article'
-            color={color}
+            color={ location.pathname === "/Skils" ? color : ""}
 
             _hover={{
               color: "teal.500",
             }}
           >
-            <Link to="/aboutme">About me</Link>
+            <Link onClick={pageNavigate}>Skils</Link>
           </LinkBox>
-        ) : (
-          <LinkBox
-            _hover={{
-              color: "teal.500",
-            }}
-          >
-            <Link to="/aboutme">About me</Link>
-
-          </LinkBox>
-        )} */}
 
 
-        {location.pathname.includes("skils") ? (
           <LinkBox
             as='article'
-            color={color}
+            color={ location.pathname === "/Projects" ? color : ""}
 
             _hover={{
               color: "teal.500",
             }}
           >
-            <Link to="/skils">Skils</Link>
+            <Link onClick={pageNavigate} >Projects</Link>
           </LinkBox>
-        ) : (
+
           <LinkBox
-            _hover={{
-              color: "teal.500",
-            }}
-          >
-            <Link to="/skils">Skils</Link>
-
-          </LinkBox>
-        )}
-
-
-        {location.pathname.includes("projects") ? (
-          <LinkBox
-            as='article'
-            color={color}
-
-            _hover={{
-              color: "teal.500",
-            }}
-          >
-            <Link to="/projects">Projects</Link>
-          </LinkBox>
-        ) : (
-          <LinkBox
-            as='article'
-            _hover={{
-              color: "teal.500",
-            }}
-          >
-            <Link to="/projects">Projects</Link>
-          </LinkBox>
-        )}
-
-        {location.pathname.includes("contacts") ? (
-          <LinkBox
-            color={color}
-
+            color={ location.pathname === "/Contacts" ? color : ""}
             _hover={{
               color: { color },
             }}
           >
-            <Link to="/contacts">Contacts</Link>
+            <Link onClick={pageNavigate} >Contacts</Link>
           </LinkBox>
-        ) : (
-          <LinkBox
-            _hover={{
-              color: { color },
-            }}
-          >
-            <Link to="/contacts">Contacts</Link>
-          </LinkBox>
-        )}
 
       </Box>
 

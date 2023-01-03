@@ -120,7 +120,7 @@ const HomeContent = () => {
                         as="p">
                         {item.key}:
                       </Heading>
-                      <Heading fontSize="20px" as="p">{item.value}</Heading>
+                      <Heading fontSize="17px" as="p">{item.value}</Heading>
                     </Flex>
                   )
                 })}
