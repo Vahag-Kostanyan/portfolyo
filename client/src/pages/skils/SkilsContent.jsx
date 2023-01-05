@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Image } from '@chakra-ui/react'
 import React from 'react'
 import myPhoto from "../../imags/myPhoto.png"
 import Chart from './Chart'
+import SkilsSkil2 from './SkilsSkil2'
 const SkilsContent = () => {
   return (
     <Flex 
@@ -14,7 +15,7 @@ const SkilsContent = () => {
     >
     
     <Flex
-      flex="2"
+      flex={3}
       alignItems="center"
       justify="center"
       fontSize="24px"
@@ -24,10 +25,11 @@ const SkilsContent = () => {
     
     <Flex 
       fontSize="10px"
+      flex={9}
     >
 
 
-      <Chart/>
+      <SkilsSkil2/>
 
 
     </Flex>
