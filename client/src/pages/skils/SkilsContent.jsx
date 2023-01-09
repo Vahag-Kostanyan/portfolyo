@@ -1,40 +1,67 @@
 import { Box, Flex, Heading, Image } from '@chakra-ui/react'
 import React from 'react'
-import myPhoto from "../../imags/myPhoto.png"
+import phpIcon from "../../imags/PHP-logo.svg.png";
 import Chart from './Chart'
 import SkilsSkil2 from './SkilsSkil2'
 const SkilsContent = () => {
   return (
-    <Flex 
-    gap="50px"
-    flexWrap="wrap"
-    alignItems="center"
-    justifyContent="center"
-    height="90vh"
-    flexDirection="column"
-    >
-    
     <Flex
-      flex={3}
+      // minHeight="90vh"
+      flexDirection="column"
       alignItems="center"
-      justify="center"
-      fontSize="24px"
-    >
-      MY SKILLS
-    </Flex>
-    
-    <Flex 
-      fontSize="10px"
-      flex={9}
+      justifyContent="center"
     >
 
+      <Flex
+        maxHeight="90vh"
+        gap="50px"
+        overflowY="scroll"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Flex
+          marginTop="10vh"
+          flex={3}
+          alignItems="center"
+          justifyContent="center"
+          justify="center"
+          fontSize="24px"
+        >
+          <Heading as="h1" >
+            MY SKILLS
 
-      <SkilsSkil2/>
+          </Heading>
+        </Flex>
 
+        <Flex
+          fontSize="10px"
+          justifyContent="center"
+          alignItems="center"
+          gap={100}
+          flexWrap="wrap"
+          padding="0 200px"
+          flex={9}
+        >
+          <SkilsSkil2 value={60} img={phpIcon} />
+
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} img={phpIcon} />
+          <SkilsSkil2 value={60} />
+          <SkilsSkil2 value={60} />
+
+
+        </Flex>
+      </Flex>
 
     </Flex>
-
-  </Flex>
   )
 }
 

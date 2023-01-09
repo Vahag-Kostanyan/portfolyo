@@ -6,8 +6,6 @@ import { motion } from 'framer-motion'
 function Index({nextPage}) {
 
 
-  console.log(nextPage);
-
   return (
     <motion.div
 
