@@ -6,61 +6,36 @@ import SkilsSkil2 from './SkilsSkil2'
 const SkilsContent = () => {
   return (
     <Flex
-      // minHeight="90vh"
       flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
+      overflowY="scroll"
+      padding="50px"
+      height="92vh"
+      gap="30px"
     >
-
       <Flex
-        maxHeight="90vh"
-        gap="50px"
-        overflowY="scroll"
-        flexDirection="column"
-        alignItems="center"
+        flex={3}
+        width="100%"
         justifyContent="center"
+        alignItems="center"
       >
-        <Flex
-          marginTop="10vh"
-          flex={3}
-          alignItems="center"
-          justifyContent="center"
-          justify="center"
-          fontSize="24px"
-        >
-          <Heading as="h1" >
-            MY SKILLS
+        <Heading as="h1" > MY SKILLS </Heading>
 
-          </Heading>
-        </Flex>
-
-        <Flex
-          fontSize="10px"
-          justifyContent="center"
-          alignItems="center"
-          gap={100}
-          flexWrap="wrap"
-          padding="0 200px"
-          flex={9}
-        >
-          <SkilsSkil2 value={60} img={phpIcon} />
-
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} img={phpIcon} />
-          <SkilsSkil2 value={60} />
-          <SkilsSkil2 value={60} />
-
-
-        </Flex>
       </Flex>
-
+      <Flex
+        flex={9}
+        padding="50px 250px"
+        gap="150px"
+        flexWrap="wrap"
+      >
+        <SkilsSkil2 value={60} img={phpIcon} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+        <SkilsSkil2 value={60} />
+      </Flex>
     </Flex>
   )
 }
