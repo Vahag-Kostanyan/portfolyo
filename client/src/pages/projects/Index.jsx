@@ -3,20 +3,20 @@ import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useCol
 import ProjectsContent from './ProjectsContent'
 import { motion } from 'framer-motion'
 
-function Index({nextPage}) {
+function Index({ nextPage }) {
 
   return (
     <motion.div
-    initial={{width: 0}}
-    animate={{width: "100%"}}
-    exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: nextPage == "left" ? window.innerWidth : -window.innerWidth, transition: { duration: 0.4 } }}
     >
-    <ChakraProvider theme={theme}>
+      <ChakraProvider theme={theme}>
         <ColorModeProvider>
-            <CSSReset/>
-            <ProjectsContent/>
+          <CSSReset />
+          <ProjectsContent />
         </ColorModeProvider>
-    </ChakraProvider>
+      </ChakraProvider>
     </motion.div>
   )
 }

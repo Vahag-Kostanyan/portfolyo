@@ -11,7 +11,6 @@ function Index({nextPage}) {
     },
   })
 
-  console.log(nextPage);
   return (
     <motion.div
       initial={{width: 0}}

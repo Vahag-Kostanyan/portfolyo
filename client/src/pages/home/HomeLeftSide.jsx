@@ -14,6 +14,7 @@ let leftList = [
     { key: "Adress", value: "Armenia Armavir" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
     { key: "Position", value: "Junior" },
+    
   ];
 
 const HomeLeftSide = () => {

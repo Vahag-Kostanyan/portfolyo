@@ -22,11 +22,16 @@ const HomeContent = () => {
   const homeTextAnimation = `${animation} 1 8s`
   return (
     <Flex
+    height="100vh"
+    overflowY="scroll"
+    // padding="10px 3px"
+    >
+
+    <Flex
       gap="50px"
       flexWrap="wrap"
       alignItems="center"
-      justifyContent="end"
-      height="90vh"
+      height="800px"
       animation={homeTextAnimation}
     >
       <HomeLeftSide/>
@@ -34,6 +39,8 @@ const HomeContent = () => {
       <HomeRightSide/>
 
     </Flex >
+    </Flex>
+
   )
 }
 

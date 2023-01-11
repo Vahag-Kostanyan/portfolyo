@@ -37,7 +37,7 @@ const ContactsContent = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      height="90vh"
+      minHeight="90vh"
       animation={homeTextAnimation}
 
     >

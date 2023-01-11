@@ -8,7 +8,9 @@ const ProjectsContent = () => {
     flexWrap="wrap"
     alignItems="center"
     justifyContent="center"
-    height="90vh"
+    // height="90vh"
+    minHeight="90vh"
+    
     >
     
     <Flex 
