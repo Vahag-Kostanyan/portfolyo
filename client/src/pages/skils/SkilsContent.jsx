@@ -7,7 +7,7 @@ const SkilsContent = () => {
   return (
     <Flex
       flexDirection="column"
-      overflowY="scroll"
+      overflowY="auto"
       padding="50px"
       height="92vh"
       gap="30px"
@@ -35,6 +35,7 @@ const SkilsContent = () => {
         <SkilsSkil2 value={60} />
         <SkilsSkil2 value={60} />
         <SkilsSkil2 value={60} />
+        
       </Flex>
     </Flex>
   )

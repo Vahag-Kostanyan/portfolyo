@@ -1,4 +1,4 @@
-import { Flex, Heading, keyframes, useDisclosure } from '@chakra-ui/react'
+import { Flex, Heading, keyframes, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import ContactForm from './ContactForm';
 import ContactAlert from './ContactAlert';
@@ -18,6 +18,11 @@ const homeAnimation = keyframes`
 `
 
 const ContactsContent = () => {
+  const [isLargerThan1100] = useMediaQuery('(min-width: 1100px)')
+  const [isLargerThan950] = useMediaQuery('(min-width: 950px)')
+
+  console.log(isLargerThan1100);
+
   const [errorText, setErrorText] = useState('')
   const [alertStatus, setAlertStatus] = useState('')
 
@@ -37,19 +42,21 @@ const ContactsContent = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      height="90vh"
+      height="92vh"
       animation={homeTextAnimation}
-
+      overflowY="auto"
+      overflowX="hidden"
     >
 
+    
       <Flex
-        flex={3}
+        flex={!isLargerThan1100 ? 1.5 : 3}         
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
         width="100%"
-
       >
+        
         <Heading textAlign="center" as="h1" size="2xl">CONTACTS</Heading>
         <ContactAlert ErrorTextAnimation={ErrorTextAnimation} alertStatus={alertStatus} errorText={errorText} isVisible={isVisible} />
       </Flex>
@@ -61,7 +68,7 @@ const ContactsContent = () => {
         alignItems="center"
         justifyContent="center"
         flex={9}
-        width="100%"
+        width={"100%"}
       >
 
         <ContactLeftSide/>

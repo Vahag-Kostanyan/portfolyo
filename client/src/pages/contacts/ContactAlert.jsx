@@ -7,14 +7,16 @@ const ContactAlert = ({ErrorTextAnimation, alertStatus, errorText, isVisible}) =
         <>
             {isVisible ? (
                 <Flex
+                    position="absolute"
                     justifyContent="flex-end"
                     width="100%"
                     padding="0 30px"
+                    
                     animation={ErrorTextAnimation}
 
                 >
-                    <Stack spacing={3}>
-                        <Alert status={alertStatus}>
+                    <Stack  spacing={3}>
+                        <Alert zIndex={5} status={alertStatus}>
                             <AlertIcon />
                             {errorText}
                         </Alert>

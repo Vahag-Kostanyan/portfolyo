@@ -85,11 +85,11 @@ const NavLink = ({setNextPage}) => {
           justifyContent="center"
           gap="10px"
         >
-          <Select onChange={LanguagesChange} placeholder='Select language'>
-            <option disabled = {language !== "en" ? false : true} >
+          <Select onChange={LanguagesChange} >
+            <option disabled = {language !== "en" ? false : true} selected = {language !== "en" ? false : true} >
               English
             </option>
-            <option disabled = {language !== "am" ? false : true}>
+            <option disabled = {language !== "am" ? false : true} selected = {language !== "am" ? false : true}>
               Armenia
             </option>
           </Select>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, Heading, } from '@chakra-ui/react'
+import { Button, Flex, Heading, useMediaQuery, } from '@chakra-ui/react'
 import { FaDownload } from "@react-icons/all-files/fa/FaDownload"
 
 let leftList = [
@@ -11,10 +11,15 @@ let leftList = [
   ];
 
 const ContactLeftSide = () => {
+  const [isLargerThan1100] = useMediaQuery('(min-width: 1100px)')
+  const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
+  const [isLargerThan400] = useMediaQuery('(min-width: 400px)')
+
     return (
         <Flex
           flex="5"
-          height="100%"
+          // height="100%"
+          height={ !isLargerThan1100 ? "55%" : "100%"}
           boxSizing="content-box"
           gap={10}
           flexDirection="column"
@@ -26,6 +31,7 @@ const ContactLeftSide = () => {
 
 
           <Flex
+            marginLeft={ !isLargerThan1100 && isLargerThan500 ? "80px" : "0"}
             flexDirection="column"
             justifyContent="flex-end"
             gap={10}
@@ -39,13 +45,13 @@ const ContactLeftSide = () => {
                 >
                   <Heading
                     fontWeight="500"
-                    fontSize="17px"
+                    fontSize={isLargerThan400 ? "17px" : "14px"}
                     color="#cbcbcb"
                     as="p">
                     {item.key}:
                   </Heading>
                   <Heading
-                    fontSize="20px" as="p">{item.value}</Heading>
+                    fontSize={isLargerThan400 ? "20px" : "15px"} as="p">{item.value}</Heading>
                 </Flex>
               )
             })}
