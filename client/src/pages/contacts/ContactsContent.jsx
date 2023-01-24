@@ -21,8 +21,6 @@ const ContactsContent = () => {
   const [isLargerThan1100] = useMediaQuery('(min-width: 1100px)')
   const [isLargerThan950] = useMediaQuery('(min-width: 950px)')
 
-  console.log(isLargerThan1100);
-
   const [errorText, setErrorText] = useState('')
   const [alertStatus, setAlertStatus] = useState('')
 
