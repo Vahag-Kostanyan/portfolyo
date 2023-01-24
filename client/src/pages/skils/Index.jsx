@@ -3,25 +3,24 @@ import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useCol
 import SkilsContent from './SkilsContent'
 import { motion } from 'framer-motion'
 
-function Index({nextPage}) {
+function Index({ nextPage }) {
 
-
-  console.log(nextPage);
 
   return (
     <motion.div
+      overflowY="scroll"
 
-    initial={{width: 0}}
-    animate={{width: "100%"}}
-    exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: nextPage == "left" ? window.innerWidth : -window.innerWidth, transition: { duration: 0.4 } }}
     >
     <ChakraProvider theme={theme}>
-        <ColorModeProvider>
-            <CSSReset/>
-            <SkilsContent/>
-        </ColorModeProvider>
+      <ColorModeProvider>
+        <CSSReset />
+        <SkilsContent />
+      </ColorModeProvider>
     </ChakraProvider>
-    </motion.div> 
+    </motion.div>
   )
 }
 

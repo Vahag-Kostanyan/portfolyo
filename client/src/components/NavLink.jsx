@@ -58,7 +58,7 @@ const NavLink = ({setNextPage}) => {
       setNextPage("left")
       setTimeout(() => {
         navigate(nextRoute)
-      }, 5)
+      }, 2)
     }
   }
 
