@@ -1,29 +1,35 @@
-import { Box, Button, Flex, LinkBox, IconButton, useColorMode, Img, Select } from '@chakra-ui/react'
-import { SunIcon, Icon } from "@chakra-ui/icons"
+import { Box, Button, Flex, LinkBox, IconButton, useColorMode, Img, Select, Menu, MenuList, MenuItem, MenuButton, Image, useMediaQuery } from '@chakra-ui/react'
+import { SunIcon, Icon, ChevronDownIcon, HamburgerIcon, AddIcon, ExternalLinkIcon, RepeatIcon, EditIcon } from "@chakra-ui/icons"
 import { BsFillMoonFill } from "react-icons/bs";
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import i18next from 'i18next';
+import UkFlag from "../imags/ukFlag.png"
+import ArmeniaFlag from "../imags/armeniaFlag.png"
+import { useEffect } from 'react';
 
-const NavLink = ({setNextPage}) => {
+const NavLink = ({ setNextPage }) => {
 
+  const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
+  const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
+  const [BugerValue, setBurgerValue] = useState(false);
+  const [BugerValue2, setBurgerValue2] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode()
+
 
   const location = useLocation()
   let navigate = useNavigate();
-
-
-
-
   const language = i18next.language
-  const LanguagesChange = (e) => {
-    const value = e.target.value;
 
-    if(value == "English"){
-      i18next.changeLanguage("en")
-    }else if(value == "Armenia"){
-      i18next.changeLanguage("am")
-    }
+  const changeBurgerValue = () => {
+    setBurgerValue(!BugerValue);
+  }
+
+  const LanguagesChangeAm = () => {
+    i18next.changeLanguage("am");
+  }
+  const LanguagesChangeEn = () => {
+    i18next.changeLanguage("en");
   }
 
   // navigate("/Skils")
@@ -31,86 +37,122 @@ const NavLink = ({setNextPage}) => {
     e.preventDefault();
     const arr = ["/", "/Skils", "/Projects", "/Contacts"];
     let current, next;
-    
+
     let nextRoute = "";
-    if(e.target.innerHTML === "Home"){
+    if (e.target.innerHTML === "Home") {
       nextRoute = "/";
-    }else{
+    } else {
       nextRoute = "/" + e.target.innerHTML;
     }
 
     arr.forEach((item, key) => {
-        if(item == nextRoute){
-          next = key;
-        }
-        if(item == location.pathname){
-          current = key;
-        }
+      if (item == nextRoute) {
+        next = key;
+      }
+      if (item == location.pathname) {
+        current = key;
+      }
     });
 
-    if(next > current){
+    if (next > current) {
       setNextPage("right")
       setTimeout(() => {
         navigate(nextRoute)
       }, 5)
 
-    }else if(next < current){
+    } else if (next < current) {
       setNextPage("left")
       setTimeout(() => {
-        navigate(nextRoute)
+        navigate(nextRoute);
       }, 2)
     }
+    setBurgerValue2(false);
+
   }
+
+  useEffect(() => {
+    if (!isLargerThan800) {
+      setBurgerValue(false)
+    }
+  }, [isLargerThan800])
 
   const color = "teal.500";
   return (
-    <Flex width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
-
-
+    <Flex>
       <Flex
-        justifyContent="center"
-        alignItems="center"
-        gap="30px"
-      >
-        <IconButton onClick={toggleColorMode} >
-          {colorMode === "light" ? (
-            <Icon as={BsFillMoonFill} />
-          ) : (
-            <Icon as={SunIcon} />
-          )}
-        </IconButton>
+        display={!isLargerThan500 ? "none" : "flex"}
+        flexDirection={!isLargerThan800 && BugerValue ? "column" : "row"}
+        gap={!isLargerThan800 && BugerValue ? "10px" : "0"}
 
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
         <Flex
-          alignItems="center"
-          justifyContent="center"
-          gap="10px"
+          justifyContent="left"
+          alignItems={!isLargerThan800 && BugerValue ? "left" : "center"}
+          width="100%"
+          gap="30px"
         >
-          <Select onChange={LanguagesChange} placeholder='Select language'>
-            <option disabled = {language !== "en" ? false : true} >
-              English
-            </option>
-            <option disabled = {language !== "am" ? false : true}>
-              Armenia
-            </option>
-          </Select>
+          <IconButton onClick={toggleColorMode} >
+            {colorMode === "light" ? (
+              <Icon as={BsFillMoonFill} />
+            ) : (
+              <Icon as={SunIcon} />
+            )}
+          </IconButton>
+
+          <Flex
+            alignItems="center"
+            justifyContent="center"
+            gap="10px"
+          >
+
+            <Menu>
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                Select language
+              </MenuButton>
+              <MenuList zIndex={2}>
+                <MenuItem minH='20px' onClick={LanguagesChangeEn}>
+                  <Image
+                    boxSize='1.5rem'
+                    src={UkFlag}
+                    mr='12px'
+                  />
+                  <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                </MenuItem>
+                <MenuItem minH='20px' onClick={LanguagesChangeAm}>
+                  <Image
+                    boxSize='1.5rem'
+                    src={ArmeniaFlag}
+                    alt='Simon the pensive'
+                    mr='12px'
+                  />
+                  <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
+                </MenuItem>
+              </MenuList>
+            </Menu>
+
+          </Flex>
         </Flex>
-      </Flex>
-      <Box display="flex" gap={8} fontSize="18px">
+        <Box
+          className='NavbarMenues' display={isLargerThan800 || BugerValue ? "flex" : "none"}
+          alignItems={!isLargerThan800 && BugerValue ? "right" : "center"}
+          justifyContent={!isLargerThan800 && BugerValue ? "start" : "end"}
+          width="100%"
+          gap={8} fontSize="18px">
 
           <LinkBox
             as='article'
-            color={ location.pathname === "/" ? color : ""}
-            
+            color={location.pathname === "/" ? color : ""}
+
             _hover={{
               color: "teal.500",
             }}
           >
-            <Link onClick={pageNavigate} >Home</Link> 
+            <Link onClick={pageNavigate} >Home</Link>
           </LinkBox>
 
           <LinkBox
             as='article'
-            color={ location.pathname === "/Skils" ? color : ""}
+            color={location.pathname === "/Skils" ? color : ""}
 
             _hover={{
               color: "teal.500",
@@ -122,7 +164,7 @@ const NavLink = ({setNextPage}) => {
 
           <LinkBox
             as='article'
-            color={ location.pathname === "/Projects" ? color : ""}
+            color={location.pathname === "/Projects" ? color : ""}
 
             _hover={{
               color: "teal.500",
@@ -132,16 +174,154 @@ const NavLink = ({setNextPage}) => {
           </LinkBox>
 
           <LinkBox
-            color={ location.pathname === "/Contacts" ? color : ""}
+            color={location.pathname === "/Contacts" ? color : ""}
             _hover={{
-              color: { color },
+              color: "teal.500",
             }}
           >
             <Link onClick={pageNavigate} >Contacts</Link>
           </LinkBox>
 
-      </Box>
+        </Box>
+        <Flex position="absolute" right={20} display={isLargerThan800 ? "none" : "flex"}>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              onClick={changeBurgerValue}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+            />
+          </Menu>
+        </Flex>
 
+
+      </Flex>
+
+      <Flex
+        display={!isLargerThan500 ? "flex" : "none"}
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
+
+        <Flex right={20} display={isLargerThan800 ? "none" : "flex"}>
+          <Menu>
+            <MenuButton
+              as={IconButton}
+              onClick={changeBurgerValue}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+            />
+            <MenuList marginLeft="-15px" padding="30px" width="95vw">
+              <Flex
+                flexDirection="column"
+                gap="20px"
+              >
+                <Flex
+                  flexWrap="wrap"
+                  justifyContent="left"
+                  alignItems={!isLargerThan800 && BugerValue ? "left" : "center"}
+                  width="100%"
+                  gap="30px"
+                >
+
+                  <Flex
+                    alignItems="center"
+                    justifyContent="center"
+                    gap="10px"
+                  >
+
+                    <Menu >
+                      <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                        Select language
+                      </MenuButton>
+                      <MenuList zIndex={2}>
+                        <MenuItem minH='20px' onClick={LanguagesChangeEn}>
+                          <Image
+                            boxSize='1.5rem'
+                            src={UkFlag}
+                            mr='12px'
+                          />
+                          <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                        </MenuItem>
+                        <MenuItem minH='20px' onClick={LanguagesChangeAm}>
+                          <Image
+                            boxSize='1.5rem'
+                            src={ArmeniaFlag}
+                            alt='Simon the pensive'
+                            mr='12px'
+                          />
+                          <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
+                        </MenuItem>
+                      </MenuList>
+                    </Menu>
+
+                  </Flex>
+                  <IconButton onClick={toggleColorMode} >
+                    {colorMode === "light" ? (
+                      <Icon as={BsFillMoonFill} />
+                    ) : (
+                      <Icon as={SunIcon} />
+                    )}
+                  </IconButton>
+                </Flex>
+                <Flex>
+                  <Flex
+                    flexDirection="column"
+                    padding="0 20px"
+                    width="100%"
+                    gap={8} fontSize="18px">
+
+                    <LinkBox
+                      as='article'
+                      color={location.pathname === "/" ? color : ""}
+
+                      _hover={{
+                        color: "teal.500",
+                      }}
+                    >
+                      <Link onClick={pageNavigate} >Home</Link>
+                    </LinkBox>
+
+                    <LinkBox
+                      as='article'
+                      color={location.pathname === "/Skils" ? color : ""}
+
+                      _hover={{
+                        color: "teal.500",
+                      }}
+                    >
+                      <Link onClick={pageNavigate}>Skils</Link>
+                    </LinkBox>
+
+
+                    <LinkBox
+                      as='article'
+                      color={location.pathname === "/Projects" ? color : ""}
+
+                      _hover={{
+                        color: "teal.500",
+                      }}
+                    >
+                      <Link onClick={pageNavigate} >Projects</Link>
+                    </LinkBox>
+
+                    <LinkBox
+                      color={location.pathname === "/Contacts" ? color : ""}
+                      _hover={{
+                        color: { color },
+                      }}
+                    >
+                      <Link onClick={pageNavigate} >Contacts</Link>
+                    </LinkBox>
+
+                  </Flex>
+                </Flex>
+
+              </Flex>
+            </MenuList>
+          </Menu>
+        </Flex>
+      </Flex>
     </Flex>
   )
 }

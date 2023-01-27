@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
-import { Button, Flex, Input, Stack, Textarea } from '@chakra-ui/react'
+import { Box, Button, Flex, Input, Stack, Textarea, useMediaQuery } from '@chakra-ui/react'
 import emailjs from '@emailjs/browser';
 import { EmailIcon } from '@chakra-ui/icons'
 
 
 const ContactForm = ({ errorText, setErrorText, setAlertStatus, onOpen, onClose }) => {
+    const [isLargerThan700] = useMediaQuery('(min-width: 700px)')
+    const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
 
     const form = useRef();
 
@@ -50,24 +52,26 @@ const ContactForm = ({ errorText, setErrorText, setAlertStatus, onOpen, onClose 
     return (
         <Flex
             flex="7"
+            padding="0 0 20px 0 "
             alignItems="center"
             justifyContent="center"
         >
-            <form onSubmit={sendMail} ref={form}>
+            <form style={{width: "95%"}} onSubmit={sendMail} ref={form}>
 
-                <Stack spacing={10}>
-                    <Input name="from_name" placeholder='name' size='md' width={600} />
-                    <Input name="from_email" placeholder='mail from' size='md' width={600} />
+                <Stack display="flex" flexDirection="column" justifyContent="center" alignItems="center" spacing={10}>
+                    <Input name="from_name" placeholder='name' size='md' width={isLargerThan700 ? 600 : "100%"} />
+                    <Input name="from_email" placeholder='mail from' size='md' width={isLargerThan700 ? 600 : "100%"}  />
                     <Textarea
                         name='message'
-                        width={600}
+                        width={isLargerThan700 ? 600 : "100%"}
                         placeholder='text'
                         size='md'
                     />
-
-                    <Button type="submit" width={150} leftIcon={<EmailIcon />} colorScheme='teal' variant='solid'>
+                    <Box  width={isLargerThan700 ? 600 : "100%"}>
+                    <Button  type="submit" width={150} leftIcon={<EmailIcon />} colorScheme='teal' variant='solid'>
                         Email
                     </Button>
+                    </Box>
                 </Stack>
             </form>
 

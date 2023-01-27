@@ -35,6 +35,7 @@ const SkilsContent = () => {
         <SkilsSkil2 value={60} />
         <SkilsSkil2 value={60} />
         <SkilsSkil2 value={60} />
+        
       </Flex>
     </Flex>
   )
