@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Heading } from '@chakra-ui/react'
+import { Box, Flex, Heading, useMediaQuery } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next';
 
 
@@ -18,14 +18,17 @@ let leftList = [
   ];
 
 const HomeLeftSide = () => {
-
     const {t} = useTranslation();
+    const [isLargerThan1500] = useMediaQuery('(min-width: 1500px)')
+    const [isLargerThan1650] = useMediaQuery('(min-width: 1650px)')
+
+
   return (
     <Flex
         flex="5"
         padding="0 50px 30px 50px"
         flexDirection="column"
-        gap="90px"
+        gap={isLargerThan1650 ? "90px" : "40px"}
 
       >
         <Flex
@@ -35,9 +38,17 @@ const HomeLeftSide = () => {
 
         >
           <Heading
-            as="h1" size="2xl"
+            as="h1" size={isLargerThan1500 ? "2xl" : "xl"}
           >{t("nameSurname")} </Heading>
-          <Heading as="h1"   fontWeight="500" size="xl">I am Web Developer</Heading>
+          <Flex
+            gap="13px"
+          >
+            <Heading fontSize="33px" fontWeight="500" size="xl">I</Heading>
+            <Heading fontSize="33px" fontWeight="500" size="xl">am</Heading>
+            <Heading fontSize="33px" fontWeight="500" size="xl">Web</Heading>
+            <Heading fontSize="33px" fontWeight="500" size="xl"> Developer</Heading>
+          </Flex>
+          {/* <Heading as="h1"   fontWeight="500" size="xl">I am Web Developer</Heading> */}
           <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             necessitatibus.</Heading>
@@ -71,7 +82,7 @@ const HomeLeftSide = () => {
                       {item.key}:
                     </Heading>
                     <Heading
-                     fontSize="20px" as="p">{item.value}</Heading>
+                     fontSize="17px" as="p">{item.value}</Heading>
                   </Flex>
                 )
               })}

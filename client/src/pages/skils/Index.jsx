@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 
 function Index({ nextPage }) {
 
-
   return (
     <motion.div
       overflowY="scroll"
@@ -15,7 +14,7 @@ function Index({ nextPage }) {
       exit={{ x: nextPage == "left" ? window.innerWidth : -window.innerWidth, transition: { duration: 0.4 } }}
     >
     <ChakraProvider theme={theme}>
-      <ColorModeProvider>
+      <ColorModeProvider initialColorMode={theme.config.initialColorMode}>
         <CSSReset />
         <SkilsContent />
       </ColorModeProvider>

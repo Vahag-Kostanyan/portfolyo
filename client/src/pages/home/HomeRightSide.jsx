@@ -1,8 +1,10 @@
 import React from 'react'
 import myPhoto from "../../imags/myPhoto.png"
-import { Flex, Image } from '@chakra-ui/react'
+import { Flex, Image, useMediaQuery } from '@chakra-ui/react'
 
 const HomeRightSide = () => {
+  const [isLargerThan1650] = useMediaQuery('(min-width: 1650px)')
+
   return (
     <Flex
         flex="7"
@@ -10,7 +12,7 @@ const HomeRightSide = () => {
         justifyContent="center"
       >
         <Image src={myPhoto} alt='Dan Abramov'
-          width="2xl"
+          width={isLargerThan1650 ? "2xl" : "xl"}
         ></Image>
       </Flex>
   )

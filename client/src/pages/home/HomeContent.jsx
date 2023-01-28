@@ -18,20 +18,17 @@ const HomeContent = () => {
   const {t} = useTranslation();
   
 
-
   const homeTextAnimation = `${animation} 1 8s`
   return (
     <Flex
-    height="100vh"
-    overflowY="scroll"
-    // padding="10px 3px"
+    height="92vh"
+    overflowY="auto"
     >
 
     <Flex
       gap="50px"
       flexWrap="wrap"
       alignItems="center"
-      height="800px"
       animation={homeTextAnimation}
     >
       <HomeLeftSide/>
