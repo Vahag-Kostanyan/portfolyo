@@ -25,6 +25,7 @@ const HomeLeftSide = () => {
         padding="0 50px 30px 50px"
         flexDirection="column"
         gap="90px"
+        key={3}
 
       >
         <Flex

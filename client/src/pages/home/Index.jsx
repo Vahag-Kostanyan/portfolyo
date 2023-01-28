@@ -13,11 +13,12 @@ function Index({nextPage}) {
 
   return (
     <motion.div
+      key={"home"}
       initial={{width: 0}}
       animate={{width: "100%"}}
       exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
       >
-    <ChakraProvider theme={theme}>
+    <ChakraProvider  theme={theme}>
         <ColorModeProvider>
             <CSSReset/>
             <HomeContent/>

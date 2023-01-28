@@ -16,9 +16,6 @@ const animation = keyframes`
 
 const HomeContent = () => {
   const {t} = useTranslation();
-  
-
-
   const homeTextAnimation = `${animation} 1 8s`
   return (
     <Flex
@@ -28,6 +25,7 @@ const HomeContent = () => {
       justifyContent="end"
       height="90vh"
       animation={homeTextAnimation}
+      key={2}
     >
       <HomeLeftSide/>
 

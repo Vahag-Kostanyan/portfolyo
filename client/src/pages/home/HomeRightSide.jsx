@@ -8,6 +8,7 @@ const HomeRightSide = () => {
         flex="7"
         alignItems="center"
         justifyContent="center"
+        key={4}
       >
         <Image src={myPhoto} alt='Dan Abramov'
           width="2xl"
