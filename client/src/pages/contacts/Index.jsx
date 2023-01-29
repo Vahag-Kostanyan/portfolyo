@@ -2,8 +2,9 @@ import React from 'react'
 import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex } from '@chakra-ui/react'
 import ContactsContent from './ContactsContent'
 import { motion } from 'framer-motion'
+import ContactsConent2 from './ContactsConent2'
 
-function Index({nextPage}) {
+function Index({ nextPage }) {
 
   return (
     <motion.div
@@ -11,13 +12,15 @@ function Index({nextPage}) {
     animate={{width: "100%"}}
     exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
     >
+
     <ChakraProvider theme={theme}>
         <ColorModeProvider>
             <CSSReset/>
-            <ContactsContent/>
+            <ContactsConent2/>
         </ColorModeProvider>
     </ChakraProvider>
     </motion.div>
+  
   )
 }
 

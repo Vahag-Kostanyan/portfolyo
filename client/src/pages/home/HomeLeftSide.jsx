@@ -29,7 +29,6 @@ const HomeLeftSide = () => {
         padding="0 50px 30px 50px"
         flexDirection="column"
         gap={isLargerThan1650 ? "90px" : "40px"}
-
       >
         <Flex
           boxSizing="content-box"

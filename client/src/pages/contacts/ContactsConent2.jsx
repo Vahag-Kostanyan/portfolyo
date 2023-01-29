@@ -17,7 +17,7 @@ const homeAnimation = keyframes`
   75% { opacity: 1; transform: translateY(0px); }
 `
 
-const ContactsContent = () => {
+const ContactsConent2 = () => {
   const [isLargerThan1100] = useMediaQuery('(min-width: 1100px)')
   const [isLargerThan950] = useMediaQuery('(min-width: 950px)')
   const [errorText, setErrorText] = useState('')
@@ -32,48 +32,30 @@ const ContactsContent = () => {
   const ErrorTextAnimation = `${Erroranimation} 1 8s`
   const homeTextAnimation = `${homeAnimation} 1 8s`
 
-
   return (
     <Flex
-      flexWrap="wrap"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="92vh"
       animation={homeTextAnimation}
-      overflowY="auto"
-      overflowX="hidden"
+      flexDirection="column"
+      height="91vh"
+      zIndex={2}
     >
-          
       <Flex
-        flex={!isLargerThan1100 ? 1.5 : 3}         
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
         width="100%"
+        flex={1.5}
+        alignItems="center"
+        justifyContent="center"
       >
-        
-        <Heading textAlign="center" as="h1" size="2xl">CONTACTS</Heading>
+                  <Heading textAlign="center" as="h1" size="2xl">CONTACTS</Heading>
         <ContactAlert ErrorTextAnimation={ErrorTextAnimation} alertStatus={alertStatus} errorText={errorText} isVisible={isVisible} />
       </Flex>
-
-
       <Flex
-        gap="50px"
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="center"
-        flex={9}
-        width={"100%"}
+        flex={10.5}
       >
-
-        <ContactLeftSide/>
-
-        <ContactForm errorText={errorText} setErrorText={setErrorText} setAlertStatus={setAlertStatus} onOpen={onOpen} onClose={onClose} />
+          111
       </Flex>
-
+      
     </Flex>
   )
 }
 
-export default ContactsContent
+export default ContactsConent2
