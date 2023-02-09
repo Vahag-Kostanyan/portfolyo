@@ -4,11 +4,15 @@ import { useTranslation } from 'react-i18next';
 import HomeLeftSide from './HomeLeftSide';
 import HomeRightSide from './HomeRightSide';
 
+
+
+
 const animation = keyframes`
   0% { opacity: 0; transform: translateY(200px); }
   25% { opacity: 1; transform: translateY(0px); }
   75% { opacity: 1; transform: translateY(0px); }
 `
+
 
 const HomeContent = () => {
   const {t} = useTranslation();

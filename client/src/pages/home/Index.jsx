@@ -1,7 +1,8 @@
 import React from 'react'
-import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex } from '@chakra-ui/react'
-import HomeContent from './HomeContent'
+import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex, useMediaQuery } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import HomeContent from './to650px/HomeContent'
+import HomeContent2 from './from650px/HomeContent'
 
 function Index({nextPage}) {
   const theme = extendTheme({
@@ -10,6 +11,8 @@ function Index({nextPage}) {
       body: `Roboto`,
     },
   })
+
+  const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
 
   return (
     <motion.div
@@ -21,7 +24,12 @@ function Index({nextPage}) {
     <ChakraProvider  theme={theme}>
         <ColorModeProvider>
             <CSSReset/>
-            <HomeContent/>
+            {isLargerThan650 ? (
+                <HomeContent/>
+              ):(
+                <HomeContent2/>
+              )
+            }
         </ColorModeProvider>
     </ChakraProvider>
     </motion.div>

@@ -16,7 +16,8 @@ function Index({ nextPage }) {
     <ChakraProvider theme={theme}>
         <ColorModeProvider>
             <CSSReset/>
-            <ContactsConent2/>
+            {/* <ContactsConent2/> */}
+            <ContactsContent/>
         </ColorModeProvider>
     </ChakraProvider>
     </motion.div>

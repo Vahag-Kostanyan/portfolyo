@@ -1,16 +1,17 @@
 import { Box, Button, Flex, LinkBox, IconButton, useColorMode, Menu, MenuList, MenuItem, MenuButton, Image, useMediaQuery, useDisclosure } from '@chakra-ui/react'
-import { SunIcon, Icon, ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons"
-import { BsFillMoonFill } from "react-icons/bs";
+import { SunIcon, MoonIcon, Icon, ChevronDownIcon, HamburgerIcon } from "@chakra-ui/icons"
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import i18next from 'i18next';
 import UkFlag from "../imags/ukFlag.png"
 import ArmeniaFlag from "../imags/armeniaFlag.png"
+import RussiaFlag from "../imags/russiaFlag.png"
 import { useEffect } from 'react';
 
 const NavLink = ({ setNextPage }) => {
 
   const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
+  const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
   const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
   const [BugerValue, setBurgerValue] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode()
@@ -28,6 +29,9 @@ const NavLink = ({ setNextPage }) => {
   }
   const LanguagesChangeEn = () => {
     i18next.changeLanguage("en");
+  }
+  const LanguagesChangeRu = () => {
+    i18next.changeLanguage("ru");
   }
 
   function pageNavigate(e) {
@@ -81,7 +85,7 @@ const NavLink = ({ setNextPage }) => {
         flexDirection={!isLargerThan800 && BugerValue ? "column" : "row"}
         gap={!isLargerThan800 && BugerValue ? "10px" : "0"}
 
-        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding={isLargerThan650 ? "20px 50px" : "20px 30px"} boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
         <Flex
           justifyContent="left"
           alignItems={!isLargerThan800 && BugerValue ? "left" : "center"}
@@ -90,7 +94,7 @@ const NavLink = ({ setNextPage }) => {
         >
           <IconButton onClick={toggleColorMode} >
             {colorMode === "light" ? (
-              <Icon as={BsFillMoonFill} />
+              <Icon as={MoonIcon} />
             ) : (
               <Icon as={SunIcon} />
             )}
@@ -106,7 +110,7 @@ const NavLink = ({ setNextPage }) => {
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                 Select language
               </MenuButton>
-              <MenuList zIndex={2}>
+              <MenuList zIndex={3}>
                 <MenuItem minH='20px' onClick={LanguagesChangeEn}>
                   <Image
                     boxSize='1.5rem'
@@ -114,6 +118,16 @@ const NavLink = ({ setNextPage }) => {
                     mr='12px'
                   />
                   <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                </MenuItem>
+                <MenuItem minH='20px' onClick={LanguagesChangeRu}>
+                  <Image
+                    boxSize='1.4rem'
+                    height="1rem"
+                    src={RussiaFlag}
+                    alt='Simon the pensive'
+                    mr='12px'
+                  />
+                  <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>Russia</span>
                 </MenuItem>
                 <MenuItem minH='20px' onClick={LanguagesChangeAm}>
                   <Image
@@ -124,6 +138,7 @@ const NavLink = ({ setNextPage }) => {
                   />
                   <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
                 </MenuItem>
+
               </MenuList>
             </Menu>
 
@@ -164,7 +179,7 @@ const NavLink = ({ setNextPage }) => {
             color={location.pathname === "/Projects" ? color : ""}
 
             _hover={{
-              color:"teal.500",
+              color: "teal.500",
             }}
           >
             <Link onClick={pageNavigate} >Projects</Link>
@@ -197,129 +212,140 @@ const NavLink = ({ setNextPage }) => {
 
       <Flex
         display={!isLargerThan500 ? "flex" : "none"}
-        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 30px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
 
         <Flex right={20}>
           <Menu>
-                <MenuButton
-                  as={IconButton}
-                  aria-label='Options'
-                  icon={<HamburgerIcon />}
-                  variant='outline'
-                />
-                <MenuList
-                  marginLeft="-15px"
-                  padding="30px 15px"
-                  width="95vw"
-                  display="flex"
+            <MenuButton
+              as={IconButton}
+              aria-label='Options'
+              icon={<HamburgerIcon />}
+              variant='outline'
+            />
+            <MenuList
+              marginLeft="-15px"
+              padding="30px 15px"
+              width="95vw"
+              display="flex"
+              flexDirection="column"
+              gap="20px"
+            >
+              <Flex
+                flexWrap="wrap"
+                justifyContent="left"
+                alignItems={!isLargerThan500 ? "left" : "center"}
+                width="100%"
+                gap="30px"
+                padding="0 25px"
+              >
+
+                <Flex
+                  alignItems="center"
+                  justifyContent="center"
+                  gap="10px"
+                >
+
+                  <Menu >
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                      Select language
+                    </MenuButton>
+                    <MenuList zIndex={2}>
+                      <MenuItem minH='20px' onClick={LanguagesChangeEn}>
+                        <Image
+                          boxSize='1.5rem'
+                          src={UkFlag}
+                          mr='12px'
+                        />
+                        <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                      </MenuItem>
+                      <MenuItem minH='20px' onClick={LanguagesChangeRu}>
+                        <Image
+                          boxSize='1.4rem'
+                          height="1rem"
+                          src={RussiaFlag}
+                          alt='Simon the pensive'
+                          mr='12px'
+                        />
+                        <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>Russia</span>
+                      </MenuItem>
+                      <MenuItem minH='20px' onClick={LanguagesChangeAm}>
+                        <Image
+                          boxSize='1.5rem'
+                          src={ArmeniaFlag}
+                          alt='Simon the pensive'
+                          mr='12px'
+                        />
+                        <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
+                      </MenuItem>
+
+                    </MenuList>
+                  </Menu>
+
+                </Flex>
+                <IconButton onClick={toggleColorMode} >
+                  {colorMode === "light" ? (
+                    <Icon as={MoonIcon} />
+                  ) : (
+                    <Icon as={SunIcon} />
+                  )}
+                </IconButton>
+              </Flex>
+              <Flex>
+                <Flex
                   flexDirection="column"
-                  gap="20px"
+                  padding="0 20px"
+                  width="100%"
+                  gap={8} fontSize="18px">
+
+
+                  <MenuItem
+                    as='article'
+
+                    color={location.pathname === "/" ? color : ""}
+
+                    _hover={{
+                      color: "teal.500",
+                    }}
                   >
-                    <Flex
-                      flexWrap="wrap"
-                      justifyContent="left"
-                      alignItems={!isLargerThan500 ? "left" : "center"}
-                      width="100%"
-                      gap="30px"
-                      padding="0 25px"
-                    >
+                    <Link onClick={pageNavigate} >Home</Link>
+                  </MenuItem>
 
-                      <Flex
-                        alignItems="center"
-                        justifyContent="center"
-                        gap="10px"
-                      >
+                  <MenuItem
+                    as='article'
+                    color={location.pathname === "/Skils" ? color : ""}
 
-                        <Menu >
-                          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                            Select language
-                          </MenuButton>
-                          <MenuList zIndex={2}>
-                            <MenuItem minH='20px' onClick={LanguagesChangeEn}>
-                              <Image
-                                boxSize='1.5rem'
-                                src={UkFlag}
-                                mr='12px'
-                              />
-                              <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
-                            </MenuItem>
-                            <MenuItem minH='20px' onClick={LanguagesChangeAm}>
-                              <Image
-                                boxSize='1.5rem'
-                                src={ArmeniaFlag}
-                                alt='Simon the pensive'
-                                mr='12px'
-                              />
-                              <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
-                            </MenuItem>
-                          </MenuList>
-                        </Menu>
-
-                      </Flex>
-                      <IconButton onClick={toggleColorMode} >
-                        {colorMode === "light" ? (
-                          <Icon as={BsFillMoonFill} />
-                        ) : (
-                          <Icon as={SunIcon} />
-                        )}
-                      </IconButton>
-                    </Flex>
-                    <Flex>
-                      <Flex
-                        flexDirection="column"
-                        padding="0 20px"
-                        width="100%"
-                        gap={8} fontSize="18px">
+                    _hover={{
+                      color: "teal.500",
+                    }}
+                  >
+                    <Link onClick={pageNavigate}>Skils</Link>
+                  </MenuItem>
 
 
-                        <MenuItem
-                          as='article'
+                  <MenuItem
+                    as='article'
+                    color={location.pathname === "/Projects" ? color : ""}
 
-                          color={location.pathname === "/" ? color : ""}
+                    _hover={{
+                      color: "teal.500",
+                    }}
+                  >
+                    <Link onClick={pageNavigate} >Projects</Link>
+                  </MenuItem>
 
-                          _hover={{
-                            color: "teal.500",
-                          }}
-                        >
-                          <Link onClick={pageNavigate} >Home</Link>
-                        </MenuItem>
+                  <MenuItem
+                    color={location.pathname === "/Contacts" ? color : ""}
+                    _hover={{
+                      color: "teal.500",
+                    }}
+                  >
+                    <Link onClick={pageNavigate} >Contacts</Link>
+                  </MenuItem>
 
-                        <MenuItem
-                          as='article'
-                          color={location.pathname === "/Skils" ? color : ""}
+                </Flex>
+              </Flex>
 
-                          _hover={{
-                            color: "teal.500",
-                          }}
-                        >
-                          <Link onClick={pageNavigate}>Skils</Link>
-                        </MenuItem>
-
-
-                        <MenuItem
-                          as='article'
-                          color={location.pathname === "/Projects" ? color : ""}
-
-                          _hover={{
-                            color: "teal.500",
-                          }}
-                        >
-                          <Link onClick={pageNavigate} >Projects</Link>
-                        </MenuItem>
-
-                        <MenuItem
-                          color={location.pathname === "/Contacts" ? color : ""}
-                          _hover={{
-                            color: "teal.500",
-                          }}
-                        >
-                          <Link onClick={pageNavigate} >Contacts</Link>
-                        </MenuItem>
-
-                      </Flex>
-                    </Flex>
-
-                </MenuList>
+            </MenuList>
           </Menu>
 
         </Flex>
