@@ -18,6 +18,8 @@ const homeAnimation = keyframes`
 `
 
 const ContactsConent2 = () => {
+
+  
   const [isLargerThan1150] = useMediaQuery('(min-width: 1150px)')
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
   const [errorText, setErrorText] = useState('')
@@ -37,10 +39,10 @@ const ContactsConent2 = () => {
       animation={homeTextAnimation}
       flexDirection="column"
       width="100%"
-      height="88vh"
+      height={isLargerThan650 ? "88vh" : ""}
       zIndex={2}
-      overflow="hidden"
-      overflowY="auto"
+      // overflow="hidden"
+      overflowY={isLargerThan650 ? "auto" : ""}
 
     >
       <Flex

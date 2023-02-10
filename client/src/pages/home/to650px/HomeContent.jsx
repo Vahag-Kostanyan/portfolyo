@@ -1,4 +1,4 @@
-import { Flex, keyframes } from '@chakra-ui/react'
+import { Flex, keyframes, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import HomeLeftSide from './HomeLeftSide';
@@ -17,16 +17,22 @@ const animation = keyframes`
 const HomeContent = () => {
   const {t} = useTranslation();
   const homeTextAnimation = `${animation} 1 8s`
+
+  const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
   return (
     <Flex
     height="92vh"
-    overflowY="auto"
+    overflowY={isLargerThan600 ? "hidden" : "auto"}
+    width="100%"
     >
 
     <Flex
-      gap="50px"
+      // gap="50px"
       flexWrap="wrap"
       alignItems="center"
+      justifyContent="space-between"
+      width="100%"
       animation={homeTextAnimation}
       key={2}
     >

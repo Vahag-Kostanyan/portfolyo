@@ -1,4 +1,5 @@
 // import './App.css';
+import { useMediaQuery } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import {BrowserRouter} from "react-router-dom";
 import AnimatedRoutes from "./components/AnimatedRoutes";

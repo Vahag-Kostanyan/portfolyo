@@ -1,8 +1,7 @@
 import React from 'react'
 import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, Flex, useMediaQuery } from '@chakra-ui/react'
+import SkillsContent from './SkillsContent'
 import { motion } from 'framer-motion'
-import HomeContent from './to650px/HomeContent'
-import HomeContent2 from './from650px/HomeContent'
 
 function Index({ nextPage }) {
   const theme = extendTheme({
@@ -17,30 +16,24 @@ function Index({ nextPage }) {
   if (isLargerThan650) {
     return (
       <motion.div
-        key={"home"}
+        overflowY="scroll"
+  
         initial={{ width: 0 }}
         animate={{ width: "100%" }}
         exit={{ x: nextPage == "left" ? window.innerWidth : -window.innerWidth, transition: { duration: 0.4 } }}
       >
-        <ChakraProvider theme={theme}>
-          <ColorModeProvider>
-            <CSSReset />
-            {isLargerThan650 ? (
-              <HomeContent />
-            ) : (
-              <HomeContent2 />
-            )
-            }
-          </ColorModeProvider>
-        </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <ColorModeProvider initialColorMode={theme.config.initialColorMode}>
+          <CSSReset />
+          <SkillsContent />
+        </ColorModeProvider>
+      </ChakraProvider>
       </motion.div>
     )
-  } else {
-    return(
-      <HomeContent2 />
-    )
-
+  }else{
+      return  <SkillsContent />
   }
+
 }
 
 export default Index

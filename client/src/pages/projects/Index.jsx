@@ -1,10 +1,15 @@
 import React from 'react'
-import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex } from '@chakra-ui/react'
+import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, Flex } from '@chakra-ui/react'
 import ProjectsContent from './ProjectsContent'
 import { motion } from 'framer-motion'
 
 function Index({ nextPage }) {
-
+  const theme = extendTheme({
+    fonts: {
+      heading: `Roboto`,
+      body: `Roboto`,
+    },
+  })
   return (
     <motion.div
       initial={{ width: 0 }}

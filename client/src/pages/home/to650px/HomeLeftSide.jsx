@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 
 let leftList = [
-    { key: "Age", value: "17" },
+    { key: "Age", value: "18" },
     { key: "Phone", value: "+374 19 58 68" },
     { key: "Linkdin", value: "vahag kostanyan" },
     { key: "Experience", value: "6 months" },
@@ -19,21 +19,30 @@ let leftList = [
 
 const HomeLeftSide = () => {
     const {t} = useTranslation();
-    const [isLargerThan1500] = useMediaQuery('(min-width: 1500px)')
     const [isLargerThan1650] = useMediaQuery('(min-width: 1650px)')
+    const [isLargerThan1500] = useMediaQuery('(min-width: 1500px)')
+    const [isLargerThan1000] = useMediaQuery('(min-width: 1000px)')
+    const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 
 
   return (
     <Flex
+        width="100%"
         flex="5"
-        padding="0 50px 30px 50px"
+        padding={isLargerThan600 ? "0 50px 30px" : "60px 30px 30px"}
         flexDirection="column"
+        minW={isLargerThan600 ? "670px" : "20px"}
+        maxW={isLargerThan1000 ? "800px" : "80%"}
+        zIndex={2}
         gap={isLargerThan1650 ? "90px" : "40px"}
+        alignItems={isLargerThan1000 ? "flex-start" : "center"}
+
       >
         <Flex
           boxSizing="content-box"
           gap={5}
           flexDirection="column"
+          alignItems={isLargerThan1000 ? "flex-start" : "center"}
 
         >
           <Heading
@@ -47,7 +56,6 @@ const HomeLeftSide = () => {
             <Heading fontSize="33px" fontWeight="500" size="xl">Web</Heading>
             <Heading fontSize="33px" fontWeight="500" size="xl"> Developer</Heading>
           </Flex>
-          {/* <Heading as="h1"   fontWeight="500" size="xl">I am Web Developer</Heading> */}
           <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
             necessitatibus.</Heading>
@@ -59,6 +67,7 @@ const HomeLeftSide = () => {
           <Heading as="h4">PERSONAL INFOS</Heading>
           <Flex
             gap="90px"
+            flexWrap="wrap"
           >
             <Box
               display="flex"
@@ -93,6 +102,7 @@ const HomeLeftSide = () => {
               <Box
                 display="flex"
                 flexDirection="column"
+                
                 gap="20px"
                 alignItems="flex-start"
               >

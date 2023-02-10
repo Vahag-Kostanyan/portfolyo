@@ -1,100 +1,60 @@
-// import React, { useMemo } from 'react';
-// import { Box, Flex, Heading, Image } from '@chakra-ui/react';
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-// // import React from 'react'
-// // import myPhoto from "../../imags/myPhoto.png"
-// // import flag from "../../imags/armeniaFlag.png"
-// const ProjectsContent = () => {
+import React, { useMemo } from 'react';
+import { Box, Flex, Heading, Image } from '@chakra-ui/react';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import react from "../../imags/react.png"
+import chakraUI from "../../imags/chakraui.png"
+import redux from "../../imags/redux.png"
+import git from "../../imags/git.png"
+import bootstrap from "../../imags/bootstrap.png"
 
-//   let settings = {
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 1
-//   };
-//   return (
-//     <Flex 
-//     gap="50px"
-//     height="90px"
-//     flexWrap="wrap"
-//     alignItems="center"
-//     justifyContent="center"    
-//     marginTop="100px"
-//     >
-//      <Slider  {...settings}>
-//       <div>
-//         <h3>lorem8002</h3>
-//       </div>
-//       <div>
-//         <h3>2</h3>
-//       </div>
-//       <div>
-//         <h3>3</h3>
-//       </div>
-//       <div>
-//         <h3>4</h3>
-//       </div>
-//       <div>
-//         <h3>5</h3>
-//       </div>
-//       <div>
-//         <h3>6</h3>
-//       </div>
-//     </Slider>
-//   </Flex>
-//   )
-// }
 
-// export default ProjectsContent
-
-import React, { Component } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { Flex } from '@chakra-ui/react';
-
-export default class ProjectsContent extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
-    return (
-      <Flex
-        // gap="50px"
-        height="90vh"
-        // flexWrap="wrap"
-        alignItems="center"
-        justifyContent="center"
-        marginTop="100px"
-      >      
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-      </Flex>
-    );
+const slides = [
+  {
+    image: react
+  },
+  {
+    image: chakraUI
+  },
+  {
+    image: redux
+  },
+  {
+    image: git
+  },
+  {
+    image: bootstrap
   }
+]
+
+const ProjectsContent = () => {
+
+  return (
+    <Flex
+      // gap="50px"
+      height="92vh"
+      flexWrap="wrap"
+      alignItems="center"
+      justifyContent="center"
+    // marginTop="100px"
+    >
+
+    <Flex
+        width="80%"
+    >
+<Carousel
+        height="auto"
+        style={{ "margin-left": "10%" }}
+
+      >
+        {slides.map((slide) => {
+          return <Image src={slide.image} height="500px" width="30%" />;
+        })}
+      </Carousel>
+    </Flex>
+      
+    </Flex>
+  )
 }
+
+export default ProjectsContent

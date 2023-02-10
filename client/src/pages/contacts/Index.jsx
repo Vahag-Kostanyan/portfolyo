@@ -1,26 +1,39 @@
 import React from 'react'
-import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex } from '@chakra-ui/react'
+import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, Flex, useMediaQuery } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ContactsConent from './ContactsConent'
 
 function Index({ nextPage }) {
+  const theme = extendTheme({
+    fonts: {
+      heading: `Roboto`,
+      body: `Roboto`,
+    },
+  })
 
-  return (
-    <motion.div
-    initial={{width: 0}}
-    animate={{width: "100%"}}
-    exit={{x: nextPage == "left" ? window.innerWidth :  -window.innerWidth, transition:{duration: 0.4}}}
-    >
+  const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
 
-    <ChakraProvider theme={theme}>
-        <ColorModeProvider>
-            <CSSReset/>
-            <ContactsConent/>
-        </ColorModeProvider>
-    </ChakraProvider>
-    </motion.div>
-  
-  )
+
+  if (isLargerThan650) {
+    return (
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        exit={{ x: nextPage == "left" ? window.innerWidth : -window.innerWidth, transition: { duration: 0.4 } }}
+      >
+
+        <ChakraProvider theme={theme}>
+          <ColorModeProvider>
+            <CSSReset />
+            <ContactsConent />
+          </ColorModeProvider>
+        </ChakraProvider>
+      </motion.div>
+
+    )
+  } else {
+    return <ContactsConent />
+  }
 }
 
 export default Index
