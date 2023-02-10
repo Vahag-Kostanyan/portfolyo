@@ -1,8 +1,7 @@
 import React from 'react'
 import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, theme, useColorMode, Flex } from '@chakra-ui/react'
-import ContactsContent from './ContactsContent'
 import { motion } from 'framer-motion'
-import ContactsConent2 from './ContactsConent2'
+import ContactsConent from './ContactsConent'
 
 function Index({ nextPage }) {
 
@@ -16,7 +15,7 @@ function Index({ nextPage }) {
     <ChakraProvider theme={theme}>
         <ColorModeProvider>
             <CSSReset/>
-            <ContactsConent2/>
+            <ContactsConent/>
         </ColorModeProvider>
     </ChakraProvider>
     </motion.div>

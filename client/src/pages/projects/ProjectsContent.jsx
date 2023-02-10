@@ -1,48 +1,100 @@
-import { Box, Flex, Heading, Image } from '@chakra-ui/react'
-import React from 'react'
-import myPhoto from "../../imags/myPhoto.png"
-const ProjectsContent = () => {
-  return (
-    <Flex 
-    gap="50px"
-    flexWrap="wrap"
-    alignItems="center"
-    justifyContent="center"
-    // height="90vh"
-    minHeight="90vh"
-    
-    >
-    
-    <Flex 
-      flex="5"
-      boxSizing="content-box"
-      gap={5}
-      padding="0 50px 300px 50px"
-      flexDirection="column"
-    >
-      <Heading as="h1" size="2xl">HI I'M VAHAGN KOSTANYAN</Heading>
-      <Heading as="h1" fontWeight="500" size="xl">I am Web Developer</Heading>
-      <Heading as="p" fontWeight="400" size="l">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos 
-      amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos amet consectetur adipisicing elit. Dolore voluptates sed hic nihil eos
-       necessitatibus.</Heading>
+// import React, { useMemo } from 'react';
+// import { Box, Flex, Heading, Image } from '@chakra-ui/react';
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// // import React from 'react'
+// // import myPhoto from "../../imags/myPhoto.png"
+// // import flag from "../../imags/armeniaFlag.png"
+// const ProjectsContent = () => {
 
-    </Flex>
+//   let settings = {
+//     dots: true,
+//     infinite: true,
+//     speed: 500,
+//     slidesToShow: 1,
+//     slidesToScroll: 1
+//   };
+//   return (
+//     <Flex 
+//     gap="50px"
+//     height="90px"
+//     flexWrap="wrap"
+//     alignItems="center"
+//     justifyContent="center"    
+//     marginTop="100px"
+//     >
+//      <Slider  {...settings}>
+//       <div>
+//         <h3>lorem8002</h3>
+//       </div>
+//       <div>
+//         <h3>2</h3>
+//       </div>
+//       <div>
+//         <h3>3</h3>
+//       </div>
+//       <div>
+//         <h3>4</h3>
+//       </div>
+//       <div>
+//         <h3>5</h3>
+//       </div>
+//       <div>
+//         <h3>6</h3>
+//       </div>
+//     </Slider>
+//   </Flex>
+//   )
+// }
 
+// export default ProjectsContent
 
+import React, { Component } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Flex } from '@chakra-ui/react';
 
-    <Flex 
-      flex="7"
-      alignItems="center"
-      justifyContent="center"
-      >
-      <Image src={myPhoto} alt='Dan Abramov' 
-             width="2xl" 
-      ></Image>
-
-    </Flex>
-
-  </Flex>
-  )
+export default class ProjectsContent extends Component {
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    return (
+      <Flex
+        // gap="50px"
+        height="90vh"
+        // flexWrap="wrap"
+        alignItems="center"
+        justifyContent="center"
+        marginTop="100px"
+      >      
+        <Slider {...settings}>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
+        </Slider>
+      </Flex>
+    );
+  }
 }
-
-export default ProjectsContent

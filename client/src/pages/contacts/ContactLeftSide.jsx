@@ -11,30 +11,26 @@ let leftList = [
   ];
 
 const ContactLeftSide = () => {
-  const [isLargerThan1100] = useMediaQuery('(min-width: 1100px)')
-  const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
-  const [isLargerThan400] = useMediaQuery('(min-width: 400px)')
+  const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
+  const [isLargerThan450] = useMediaQuery('(min-width: 450px)')
+  const [isLargerThan1040] = useMediaQuery('(min-width: 1040px)')
 
     return (
         <Flex
           flex="5"
-          // height="100%"
-          height={ !isLargerThan1100 ? "55%" : "100%"}
+          height={isLargerThan1040 ? "100%" : "65%"}
           boxSizing="content-box"
           gap={10}
           flexDirection="column"
           justifyContent="center"
-          alignItems="center"
-
+          alignItems={isLargerThan650 ? "center" : "flex-start"}
+          padding="5px 10px"
         >
 
-
-
           <Flex
-            marginLeft={ !isLargerThan1100 && isLargerThan500 ? "80px" : "0"}
             flexDirection="column"
             justifyContent="flex-end"
-            gap={10}
+            gap={isLargerThan450 ? 10 : 8}
           >
 
             {leftList.map(item => {
@@ -45,13 +41,13 @@ const ContactLeftSide = () => {
                 >
                   <Heading
                     fontWeight="500"
-                    fontSize={isLargerThan400 ? "17px" : "14px"}
+                    fontSize={isLargerThan450 ? "17px" : "14px"}
                     color="#cbcbcb"
                     as="p">
                     {item.key}:
                   </Heading>
                   <Heading
-                    fontSize={isLargerThan400 ? "20px" : "15px"} as="p">{item.value}</Heading>
+                    fontSize={isLargerThan450 ? "20px" : "15px"} as="p">{item.value}</Heading>
                 </Flex>
               )
             })}

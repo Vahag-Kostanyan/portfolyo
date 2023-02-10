@@ -81,7 +81,7 @@ const NavLink = ({ setNextPage }) => {
         flexDirection={!isLargerThan800 && BugerValue ? "column" : "row"}
         gap={!isLargerThan800 && BugerValue ? "10px" : "0"}
 
-        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 90px" boxShadow="rgb(100 100 111 / 10%) 0px 7px 29px 0px;">
         <Flex
           justifyContent="left"
           alignItems={!isLargerThan800 && BugerValue ? "left" : "center"}
@@ -197,7 +197,7 @@ const NavLink = ({ setNextPage }) => {
 
       <Flex
         display={!isLargerThan500 ? "flex" : "none"}
-        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
+        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px" boxShadow="rgb(100 100 111 / 10%) 0px 7px 29px 0px;">
 
         <Flex right={20}>
           <Menu>

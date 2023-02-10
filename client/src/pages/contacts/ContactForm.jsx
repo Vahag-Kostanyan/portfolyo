@@ -52,7 +52,7 @@ const ContactForm = ({ errorText, setErrorText, setAlertStatus, onOpen, onClose 
     return (
         <Flex
             flex="7"
-            padding="0 0 20px 0 "
+            width="100%"
             alignItems="center"
             justifyContent="center"
         >
