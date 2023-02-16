@@ -55,6 +55,8 @@ const ContactForm = ({ errorText, setErrorText, setAlertStatus, onOpen, onClose 
             width="100%"
             alignItems="center"
             justifyContent="center"
+            position="relative"
+
         >
             <form style={{width: "95%"}} onSubmit={sendMail} ref={form}>
 

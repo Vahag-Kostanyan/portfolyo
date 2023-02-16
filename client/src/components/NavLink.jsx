@@ -12,7 +12,6 @@ const NavLink = ({ setNextPage }) => {
 
   const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
-  const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
   const [BugerValue, setBurgerValue] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode()
 
@@ -373,7 +372,7 @@ const NavLink = ({ setNextPage }) => {
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
               Select language
             </MenuButton>
-            <MenuList zIndex={2}>
+            <MenuList zIndex={999}>
               <MenuItem minH='20px' onClick={LanguagesChangeEn}>
                 <Image
                   boxSize='1.5rem'

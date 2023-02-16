@@ -7,8 +7,9 @@ let leftList = [
     { key: "Age", value: "18" },
     { key: "Phone", value: "+374 19 58 68" },
     { key: "Linkdin", value: "vahag kostanyan" },
-    { key: "Experience", value: "6 months" },
+    { key: "Experience", value: "8 months" },
   ];
+  
   let rightList = [
     { key: "Nationality", value: "Armenin" },
     { key: "Adress", value: "Armenia Armavir" },

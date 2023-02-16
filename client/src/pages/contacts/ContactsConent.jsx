@@ -39,11 +39,12 @@ const ContactsConent2 = () => {
       animation={homeTextAnimation}
       flexDirection="column"
       width="100%"
-      height={isLargerThan650 ? "88vh" : ""}
+      height={isLargerThan650 ? "85vh" : ""}
       zIndex={2}
-      // overflow="hidden"
+      overflowX={isLargerThan650 ? "hidden" : ""}
       overflowY={isLargerThan650 ? "auto" : ""}
-
+      position="relative"
+      padding={isLargerThan650 ? "0 50px" : "50px 0 0 "}
     >
       <Flex
         width="100%"
@@ -58,7 +59,9 @@ const ContactsConent2 = () => {
       <Flex
         flex={10}
         flexDirection={isLargerThan1150 ? "row" : "column"}
-        gap="60px"
+        // gap="60px"
+        gap={isLargerThan650 ? "60px" : "80px"}
+
       padding={isLargerThan650 ? "20px 90px" : "20px 20px"}
 
       >

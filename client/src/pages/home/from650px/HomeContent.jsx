@@ -13,7 +13,7 @@ let rightList = [
     { key: "Age", value: "18" },
     { key: "Phone", value: "+374 19 58 68" },
     { key: "Linkdin", value: "vahag kostanyan" },
-    { key: "Experience", value: "6 months" },
+    { key: "Experience", value: "8 months" },
     { key: "Nationality", value: "Armenin" },
     { key: "Adress", value: "Armenia Armavir" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
@@ -30,7 +30,7 @@ const HomeContent = () => {
         <Flex
             flexDirection="column"
             height={isLargerThan650 ? "91vh" : "auto"}
-            padding="20px 30px"
+            padding="50px 30px"
             overflowY={isLargerThan650 ? "auto" : ""}
             gap="30px"
         >

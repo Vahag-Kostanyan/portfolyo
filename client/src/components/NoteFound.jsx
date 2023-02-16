@@ -22,7 +22,7 @@ const NoteFound = () => {
         <div className="error__subtitle">Hmmm...</div>
         <div style={{marginBottom: "15px"}} className="error__description">It looks like one of the  developers fell asleep</div>
           <Link style={{textDecoration: "none"}} className="error__button error__button--active" to="/">HOME</Link>
-          <Link style={{textDecoration: "none"}} className="error__button" to="/aboutme">ABOUT ME</Link>
+          {/* <Link style={{textDecoration: "none"}} className="error__button" to="/aboutme"></Link> */}
       </div>
 
       <div className="astronaut">
