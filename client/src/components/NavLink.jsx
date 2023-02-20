@@ -7,12 +7,13 @@ import UkFlag from "../imags/ukFlag.png"
 import ArmeniaFlag from "../imags/armeniaFlag.png"
 import RussiaFlag from "../imags/russiaFlag.png"
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const NavLink = ({ setNextPage }) => {
 
+  const { t } = useTranslation();
   const [isLargerThan800] = useMediaQuery('(min-width: 800px)')
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
-  const [isLargerThan500] = useMediaQuery('(min-width: 500px)')
   const [BugerValue, setBurgerValue] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode()
 
@@ -39,12 +40,7 @@ const NavLink = ({ setNextPage }) => {
     const arr = ["/", "/Skills", "/Projects", "/Contacts"];
     let current, next;
 
-    let nextRoute = "";
-    if (e.target.innerHTML === "Home") {
-      nextRoute = "/";
-    } else {
-      nextRoute = "/" + e.target.innerHTML;
-    }
+    let nextRoute = "/" + e.target.className;
 
     arr.forEach((item, key) => {
       if (item == nextRoute) {
@@ -108,7 +104,7 @@ const NavLink = ({ setNextPage }) => {
 
             <Menu>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                Select language
+                {t('selectLanguage')}
               </MenuButton>
               <MenuList zIndex={3}>
                 <MenuItem minH='20px' onClick={LanguagesChangeEn}>
@@ -117,7 +113,7 @@ const NavLink = ({ setNextPage }) => {
                     src={UkFlag}
                     mr='12px'
                   />
-                  <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                  <span style={{ opacity: language === "en" ? 0.5 : 1 }}>{t('english')}</span>
                 </MenuItem>
                 <MenuItem minH='20px' onClick={LanguagesChangeRu}>
                   <Image
@@ -127,7 +123,7 @@ const NavLink = ({ setNextPage }) => {
                     alt='Simon the pensive'
                     mr='12px'
                   />
-                  <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>Russia</span>
+                  <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>{t('russian')}</span>
                 </MenuItem>
                 <MenuItem minH='20px' onClick={LanguagesChangeAm}>
                   <Image
@@ -136,7 +132,7 @@ const NavLink = ({ setNextPage }) => {
                     alt='Simon the pensive'
                     mr='12px'
                   />
-                  <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
+                  <span style={{ opacity: language === "am" ? 0.5 : 1 }}>{t('armenian')}</span>
                 </MenuItem>
 
               </MenuList>
@@ -159,7 +155,7 @@ const NavLink = ({ setNextPage }) => {
               color: "teal.500",
             }}
           >
-            <Link onClick={pageNavigate} >Home</Link>
+            <Link onClick={pageNavigate} className='' >{t('home')}</Link>
           </LinkBox>
 
           <LinkBox
@@ -170,7 +166,7 @@ const NavLink = ({ setNextPage }) => {
               color: "teal.500",
             }}
           >
-            <Link onClick={pageNavigate}>Skills</Link>
+            <Link onClick={pageNavigate} className='Skills' >{t('skills')}</Link>
           </LinkBox>
 
 
@@ -182,7 +178,7 @@ const NavLink = ({ setNextPage }) => {
               color: "teal.500",
             }}
           >
-            <Link onClick={pageNavigate} >Projects</Link>
+            <Link onClick={pageNavigate} className='Projects' >{t('projects')}</Link>
           </LinkBox>
 
           <LinkBox
@@ -191,7 +187,7 @@ const NavLink = ({ setNextPage }) => {
               color: "teal.500",
             }}
           >
-            <Link onClick={pageNavigate} >Contacts</Link>
+            <Link onClick={pageNavigate} className='Contacts' >{t('contacts')}</Link>
           </LinkBox>
 
         </Box>
@@ -209,148 +205,6 @@ const NavLink = ({ setNextPage }) => {
 
 
       </Flex>
-
-      {/* <Flex
-        display={!isLargerThan650 ? "flex" : "none"}
-        width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 30px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
-
-        <Flex right={20}>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<HamburgerIcon />}
-              variant='outline'
-            />
-            <MenuList
-              marginLeft="-15px"
-              padding="30px 15px"
-              width="95vw"
-              display="flex"
-              flexDirection="column"
-              gap="20px"
-            >
-              <Flex
-                flexWrap="wrap"
-                justifyContent="left"
-                alignItems={!isLargerThan650 ? "left" : "center"}
-                width="100%"
-                gap="30px"
-                padding="0 25px"
-              >
-
-                <Flex
-                  alignItems="center"
-                  justifyContent="center"
-                  gap="10px"
-                >
-
-                  <Menu >
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                      Select language
-                    </MenuButton>
-                    <MenuList zIndex={2}>
-                      <MenuItem minH='20px' onClick={LanguagesChangeEn}>
-                        <Image
-                          boxSize='1.5rem'
-                          src={UkFlag}
-                          mr='12px'
-                        />
-                        <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
-                      </MenuItem>
-                      <MenuItem minH='20px' onClick={LanguagesChangeRu}>
-                        <Image
-                          boxSize='1.4rem'
-                          height="1rem"
-                          src={RussiaFlag}
-                          alt='Simon the pensive'
-                          mr='12px'
-                        />
-                        <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>Russia</span>
-                      </MenuItem>
-                      <MenuItem minH='20px' onClick={LanguagesChangeAm}>
-                        <Image
-                          boxSize='1.5rem'
-                          src={ArmeniaFlag}
-                          alt='Simon the pensive'
-                          mr='12px'
-                        />
-                        <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
-                      </MenuItem>
-
-                    </MenuList>
-                  </Menu>
-
-                </Flex>
-                <IconButton onClick={toggleColorMode} >
-                  {colorMode === "light" ? (
-                    <Icon as={MoonIcon} />
-                  ) : (
-                    <Icon as={SunIcon} />
-                  )}
-                </IconButton>
-              </Flex>
-              <Flex>
-                <Flex
-                  flexDirection="column"
-                  padding="0 20px"
-                  width="100%"
-                  gap={8} fontSize="18px">
-
-
-                  <MenuItem
-                    as='article'
-
-                    color={location.pathname === "/" ? color : ""}
-
-                    _hover={{
-                      color: "teal.500",
-                    }}
-                  >
-                    <Link onClick={pageNavigate} >Home</Link>
-                  </MenuItem>
-
-                  <MenuItem
-                    as='article'
-                    color={location.pathname === "/Skills" ? color : ""}
-
-                    _hover={{
-                      color: "teal.500",
-                    }}
-                  >
-                    <Link onClick={pageNavigate}>Skills</Link>
-                  </MenuItem>
-
-
-                  <MenuItem
-                    as='article'
-                    color={location.pathname === "/Projects" ? color : ""}
-
-                    _hover={{
-                      color: "teal.500",
-                    }}
-                  >
-                    <Link onClick={pageNavigate} >Projects</Link>
-                  </MenuItem>
-
-                  <MenuItem
-                    color={location.pathname === "/Contacts" ? color : ""}
-                    _hover={{
-                      color: "teal.500",
-                    }}
-                  >
-                    <Link onClick={pageNavigate} >Contacts</Link>
-                  </MenuItem>
-
-                </Flex>
-              </Flex>
-
-            </MenuList>
-          </Menu>
-
-        </Flex>
-      </Flex> */}
-
       <Flex
         display={!isLargerThan650 ? "flex" : "none"}
         width="100vw" height="auto" alignItems="center" justifyContent="space-between" fontSize="18px" padding="20px 30px" boxShadow="rgb(100 100 111 / 20%) 0px 7px 29px 0px;">
@@ -371,16 +225,16 @@ const NavLink = ({ setNextPage }) => {
 
           <Menu >
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              Select language
+            {t('selectLanguage')}
             </MenuButton>
-            <MenuList zIndex={2}>
+            <MenuList zIndex={999}>
               <MenuItem minH='20px' onClick={LanguagesChangeEn}>
                 <Image
                   boxSize='1.5rem'
                   src={UkFlag}
                   mr='12px'
                 />
-                <span style={{ opacity: language === "en" ? 0.5 : 1 }}>English</span>
+                <span style={{ opacity: language === "en" ? 0.5 : 1 }}>{t('english')}</span>
               </MenuItem>
               <MenuItem minH='20px' onClick={LanguagesChangeRu}>
                 <Image
@@ -390,7 +244,7 @@ const NavLink = ({ setNextPage }) => {
                   alt='Simon the pensive'
                   mr='12px'
                 />
-                <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>Russia</span>
+                <span style={{ opacity: language === "ru" ? 0.5 : 1 }}>{t('russian')}</span>
               </MenuItem>
               <MenuItem minH='20px' onClick={LanguagesChangeAm}>
                 <Image
@@ -399,7 +253,7 @@ const NavLink = ({ setNextPage }) => {
                   alt='Simon the pensive'
                   mr='12px'
                 />
-                <span style={{ opacity: language === "am" ? 0.5 : 1 }}>Armenian</span>
+                <span style={{ opacity: language === "am" ? 0.5 : 1 }}>{t('armenian')}</span>
               </MenuItem>
 
             </MenuList>

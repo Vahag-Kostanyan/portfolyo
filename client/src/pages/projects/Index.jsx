@@ -1,7 +1,8 @@
 import React from 'react'
 import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, Flex } from '@chakra-ui/react'
-import ProjectsContent from './ProjectsContent'
+// import ProjectsContent from './ProjectsContent'
 import { motion } from 'framer-motion'
+import ProjectsContent from './ProjectsContent'
 
 function Index({ nextPage }) {
   const theme = extendTheme({
@@ -10,6 +11,7 @@ function Index({ nextPage }) {
       body: `Roboto`,
     },
   })
+
   return (
     <motion.div
       initial={{ width: 0 }}
@@ -19,7 +21,7 @@ function Index({ nextPage }) {
       <ChakraProvider theme={theme}>
         <ColorModeProvider>
           <CSSReset />
-          <ProjectsContent />
+          <ProjectsContent/>
         </ColorModeProvider>
       </ChakraProvider>
     </motion.div>

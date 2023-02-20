@@ -7,13 +7,13 @@ const Skill = ({ skil, skilName }) => {
     return (
         <Flex
             flexDirection="column"
-            width="180px"
-            height="220px"
+            width="220px"
+            height="270px"
             boxShadow="rgb(100 100 111 / 15%) 0px 7px 29px 0px;"
             _hover={{
                 boxShadow: "rgb(100 100 111 / 80%) 0px 7px 29px 0px;",
-                width: "190px",
-                height: "230px",
+                width: "230px",
+                height: "280px",
                 transitionDuration: "150ms",
             }}
             borderRadius={10}

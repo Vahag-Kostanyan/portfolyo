@@ -7,12 +7,26 @@ import NoteFound from '../components/NoteFound';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
 import NavLink from './NavLink';
-import { ChakraProvider, ColorModeProvider, CSSReset, Flex, theme, useMediaQuery } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeProvider, CSSReset, Flex, extendTheme, useMediaQuery } from '@chakra-ui/react';
 import { useState } from 'react';
 
+
+
+
+const theme = extendTheme({
+    fonts: {
+      heading: `Roboto`,
+      body: `Roboto`,
+    },
+  })
+
 const AnimatedRoutes = () => {
+    if(!localStorage.getItem("chakra-ui-color-mode")) {
+        localStorage.setItem("chakra-ui-color-mode", "dark");
+    }
     const location = useLocation();
     const [nextPage, setNextPage] = useState("right");
+
 
     const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
 
@@ -57,7 +71,7 @@ const AnimatedRoutes = () => {
                         height="90vh"
                         overflow="hidden"
                         overflowY="scroll"
-                        padding="0 0 30px 0"
+                        padding="0 0 90px 0"
                     >
                         <Home nextPage={nextPage} />
                         <Skills nextPage={nextPage} />

@@ -14,6 +14,7 @@ import chakraUI from "../../imags/chakraui.png"
 import redux from "../../imags/redux.png"
 import git from "../../imags/git.png"
 import bootstrap from "../../imags/bootstrap.png"
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -28,6 +29,7 @@ const SkillsContent = () => {
   const [isLargerThan1500] = useMediaQuery('(min-width: 1500px)')
   const [isLargerThan580] = useMediaQuery('(min-width: 580px)')
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
+  const { t } = useTranslation();
 
   const homeTextAnimation = `${animation} 1 8s`
 
@@ -37,7 +39,7 @@ const SkillsContent = () => {
     <Flex
       flexDirection="column"
       overflowY={isLargerThan650 ? "auto" : ""}
-      padding="50px"
+      padding="20px 50px"
       height={isLargerThan650 ? "92vh" : "auto"}
       gap="30px"
       animation={homeTextAnimation}
@@ -50,7 +52,7 @@ const SkillsContent = () => {
         alignItems="center"
       >
 
-        <Heading as="h1" size="2xl" > MY Skills </Heading>
+        <Heading as="h1" size="2xl" > {t('mySkills')} </Heading>
 
       </Flex>
       <Flex

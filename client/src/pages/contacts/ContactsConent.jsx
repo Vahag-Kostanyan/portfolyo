@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import ContactForm from './ContactForm';
 import ContactAlert from './ContactAlert';
 import ContactLeftSide from './ContactLeftSide';
+import { useTranslation } from 'react-i18next';
 
 
 const Erroranimation = keyframes`
@@ -18,8 +19,7 @@ const homeAnimation = keyframes`
 `
 
 const ContactsConent2 = () => {
-
-  
+  const { t } = useTranslation();
   const [isLargerThan1150] = useMediaQuery('(min-width: 1150px)')
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
   const [errorText, setErrorText] = useState('')
@@ -39,11 +39,12 @@ const ContactsConent2 = () => {
       animation={homeTextAnimation}
       flexDirection="column"
       width="100%"
-      height={isLargerThan650 ? "88vh" : ""}
+      height={isLargerThan650 ? "85vh" : ""}
       zIndex={2}
-      // overflow="hidden"
+      overflowX={isLargerThan650 ? "hidden" : ""}
       overflowY={isLargerThan650 ? "auto" : ""}
-
+      position="relative"
+      padding={isLargerThan650 ? "0 50px" : "50px 0 0 "}
     >
       <Flex
         width="100%"
@@ -52,13 +53,15 @@ const ContactsConent2 = () => {
         alignItems="center"
         justifyContent="center"
       >
-        <Heading textAlign="center" as="h1" size="2xl">CONTACTS</Heading>
+        <Heading textAlign="center" as="h1" size="2xl">{t('myContacts')}</Heading>
         <ContactAlert ErrorTextAnimation={ErrorTextAnimation} alertStatus={alertStatus} errorText={errorText} isVisible={isVisible} />
       </Flex>
       <Flex
         flex={10}
         flexDirection={isLargerThan1150 ? "row" : "column"}
-        gap="60px"
+        // gap="60px"
+        gap={isLargerThan650 ? "60px" : "80px"}
+
       padding={isLargerThan650 ? "20px 90px" : "20px 20px"}
 
       >

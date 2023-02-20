@@ -11,7 +11,7 @@ const ContactAlert = ({ErrorTextAnimation, alertStatus, errorText, isVisible}) =
             {isVisible ? (
                 <Flex
                     position="absolute"
-                    // top="500px"
+                    top={isLargerThan650 ? "" : "480px"}
                     justifyContent="flex-end"
                     width="100%"
                     padding="0 30px"

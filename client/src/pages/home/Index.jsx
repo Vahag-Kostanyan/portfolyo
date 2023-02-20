@@ -25,12 +25,7 @@ function Index({ nextPage }) {
         <ChakraProvider theme={theme}>
           <ColorModeProvider>
             <CSSReset />
-            {isLargerThan650 ? (
               <HomeContent />
-            ) : (
-              <HomeContent2 />
-            )
-            }
           </ColorModeProvider>
         </ChakraProvider>
       </motion.div>
