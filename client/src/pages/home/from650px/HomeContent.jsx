@@ -1,18 +1,13 @@
 import React from 'react';
-import { Box, Flex, Heading, Image, keyframes, useMediaQuery } from '@chakra-ui/react'
+import { Box, Flex, Heading, Image, keyframes, Link, useMediaQuery } from '@chakra-ui/react'
 import myPhoto from "../../../imags/myPhoto.png"
 import { useTranslation } from 'react-i18next';
 
-// let leftList = [
-//     { key: "Age", value: "17" },
-//     { key: "Phone", value: "+374 19 58 68" },
-//     { key: "Linkdin", value: "vahag kostanyan" },
-//     { key: "Experience", value: "6 months" },
-// ];
+
 let rightList = [
     { key: "Age", value: "18" },
     { key: "Phone", value: "+374 19 58 68" },
-    { key: "Linkdin", value: "vahag kostanyan" },
+    { key: "Linkdin", value: "vahag kostanyan", link: "https://www.linkedin.com/in/vahag-kostanyan-963534249/" },
     { key: "Experience", value: "8 months" },
     { key: "Nationality", value: "Armenin" },
     { key: "Adress", value: "Armenia Armavir" },
@@ -39,18 +34,25 @@ const HomeContent = () => {
                 alignItems={isLargerThan500 ? "center" : "flex-start"}
                 textAlign={isLargerThan500 ? "center" : "left"}
             >
-                <Heading
-                    fontSize="28px"
-                >{t("nameSurname")} </Heading>
-                <Flex
-                    gap="13px"
+                <Flex gap="20px" alignItems="flex-end"
+                    justifyContent="center"
+
                 >
-                    <Heading fontSize="25px" fontWeight="500" size="xl">I</Heading>
-                    <Heading fontSize="25px" fontWeight="500" size="xl">am</Heading>
-                    <Heading fontSize="25px" fontWeight="500" size="xl">Web</Heading>
-                    <Heading fontSize="25px" fontWeight="500" size="xl"> Developer</Heading>
+                    <Heading
+                        as="h1" fontWeight={500} size={"xl"}
+                    > <Heading as="span" borderBottom='1px solid' fontWeight="100px" size={"2xl"}>{t('nameSurnameFirstSide')}</Heading> {t('nameSurnameLastSide')}</Heading>
                 </Flex>
-                <Image src={myPhoto} alt='Dan Abramov'
+                <Flex
+                    gap="8px"
+                    flexWrap="wrap"
+                >
+                    <Heading letterSpacing={6} fontWeight="500" fontSize="25px">{t('i')}</Heading>
+                    <Heading letterSpacing={6} fontWeight="500" fontSize="25px">{t('am')}</Heading>
+                    <Heading letterSpacing={6} fontWeight="500" fontSize="25px">{t('web')}</Heading>
+                    <Heading letterSpacing={6} fontWeight="500" fontSize="25px"> {t('developer')}</Heading>
+
+                </Flex>
+                <Image pointerEvents="none" src={myPhoto} alt='Dan Abramov'
                     width="100%"
                 ></Image>
             </Flex>
@@ -70,40 +72,11 @@ const HomeContent = () => {
                     flexDirection="column"
                     gap="30px"
                 >
-                    <Heading as="h4">PERSONAL INFOS</Heading>
+                    <Heading as="h4" size={"lg"}>{t('personalInfo')}</Heading>
                     <Flex
                         gap="40px"
                         flexWrap="wrap"
                     >
-                        {/* <Box
-                            display="flex"
-                            flexDirection="column"
-                            gap="20px"
-                            alignItems="flex-start"
-                        >
-                            {leftList.map(item => {
-                                return (
-                                    <Flex
-                                        justifyContent="center"
-                                        alignItems="center"
-                                        gap="10px"
-                                    >
-                                        <Heading
-                                            fontWeight="500"
-                                            fontSize="17px"
-                                            color="#cbcbcb"
-                                            as="p">
-                                            {item.key}:
-                                        </Heading>
-                                        <Heading
-                                            fontSize="17px" as="p">{item.value}</Heading>
-                                    </Flex>
-                                )
-                            })}
-
-
-                        </Box> */}
-
                         <Box
                             display="flex"
                             flexDirection="column"
@@ -125,7 +98,22 @@ const HomeContent = () => {
                                             as="p">
                                             {item.key}:
                                         </Heading>
-                                        <Heading fontSize="17px" width="auto" as="p">{item.value}</Heading>
+                                        {item.link ? (
+                                            <Link href={item.link} isExternal>
+                                                <Heading fontSize="17px" width="auto" as="p">{item.value}</Heading>
+                                            </Link>
+                                        ) : (
+                                            <>
+                                                {item.key == "Mail" ? (
+                                                    <Link onClick={() => window.location = 'mailto:vahag.kostanyan974@gmail.com'}>
+                                                        <Heading fontSize="17px" as="p">{item.value}</Heading>
+                                                    </Link>
+                                                ) : (
+                                                    <Heading fontSize="17px" width="auto" as="p">{item.value}</Heading>
+                                                )
+                                                }
+                                            </>
+                                        )}
                                     </Flex>
                                 )
                             })}

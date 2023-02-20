@@ -10,17 +10,23 @@ import NavLink from './NavLink';
 import { ChakraProvider, ColorModeProvider, CSSReset, Flex, extendTheme, useMediaQuery } from '@chakra-ui/react';
 import { useState } from 'react';
 
+
+
+
+const theme = extendTheme({
+    fonts: {
+      heading: `Roboto`,
+      body: `Roboto`,
+    },
+  })
+
 const AnimatedRoutes = () => {
+    if(!localStorage.getItem("chakra-ui-color-mode")) {
+        localStorage.setItem("chakra-ui-color-mode", "dark");
+    }
     const location = useLocation();
     const [nextPage, setNextPage] = useState("right");
 
-
-    const theme = extendTheme({
-        fonts: {
-          heading: `Roboto`,
-          body: `Roboto`,
-        },
-      })
 
     const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
 

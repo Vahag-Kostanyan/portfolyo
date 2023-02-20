@@ -10,7 +10,7 @@ const HomeRightSide = () => {
 
     if (!isLargerThan1500 && isLargerThan1000) {
         return (
-            <Image src={myPhoto} alt='Dan Abramov'
+            <Image pointerEvents="none" src={myPhoto} alt='Dan Abramov'
                 width="580px"
                 position="absolute"
                 top="80px"
@@ -20,7 +20,7 @@ const HomeRightSide = () => {
     }
     if (!isLargerThan1000 && isLargerThan800) {
         return (
-            <Image src={myPhoto} alt='Dan Abramov'
+            <Image pointerEvents="none" src={myPhoto} alt='Dan Abramov'
                 width="580px"
                 position="absolute"
                 right="200px"
@@ -30,10 +30,9 @@ const HomeRightSide = () => {
         )
     }
     if (!isLargerThan800 && isLargerThan650) {
-        console.log(2);
 
         return (
-            <Image src={myPhoto} alt='Dan Abramov'
+            <Image pointerEvents="none" src={myPhoto} alt='Dan Abramov'
                 width="580px"
                 position="absolute"
                 right="100px"
@@ -42,12 +41,11 @@ const HomeRightSide = () => {
         )
     }
     return (
-        <Image src={myPhoto} alt='Dan Abramov'
+        <Image pointerEvents="none" src={myPhoto} alt='Dan Abramov'
             width="580px"
             position="relative"
             top="20px"
             right="100px"
-            // right={0}
         ></Image>
     )
 

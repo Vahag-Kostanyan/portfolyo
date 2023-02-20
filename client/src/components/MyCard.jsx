@@ -1,5 +1,5 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Button, Flex, Heading, Image, useMediaQuery } from '@chakra-ui/react';
+import { Button, Flex, Heading, Image, Link, useMediaQuery } from '@chakra-ui/react';
 import React from 'react';
 
 const MyCard = (props) => {
@@ -14,21 +14,24 @@ const MyCard = (props) => {
             alignItems="center"
             justifyContent="center"
             flexDirection="column"
-            
+
         >
-            <Image width={isLargerThan1000 ? "55%" : "70%"} height="100%" src={props.image} ></Image>
+            <Image width={isLargerThan1000 ? "65%" : "90%"} height="100%" src={props.image} pointerEvents="none" ></Image>
             <Flex
                 width="100%"
                 justifyContent="space-between"
-                // flexWrap="wrap"
                 padding={isLargerThan1000 ? "0 100px" : ""}
             >
-                <Button fontSize={isLargerThan650 ? "16px" : "13px"} rightIcon={<ArrowForwardIcon />}>
-                    Go to page
-                </Button>
-                <Button fontSize={isLargerThan650 ? "16px" : "13px"}  rightIcon={<ArrowForwardIcon />}>
-                    Go to repository
-                </Button>
+                <Link href={props.page} isExternal>
+                    <Button fontSize={isLargerThan650 ? "16px" : "13px"} rightIcon={<ArrowForwardIcon />}>
+                        Go to page
+                    </Button>
+                </Link>
+                <Link href={props.repasitory} isExternal>
+                    <Button fontSize={isLargerThan650 ? "16px" : "13px"} rightIcon={<ArrowForwardIcon />}>
+                        Go to repository
+                    </Button>
+                </Link>
             </Flex>
         </Flex>
     );

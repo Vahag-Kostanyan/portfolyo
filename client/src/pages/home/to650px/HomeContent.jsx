@@ -15,7 +15,6 @@ const animation = keyframes`
 
 
 const HomeContent = () => {
-  const {t} = useTranslation();
   const homeTextAnimation = `${animation} 1 8s`
 
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
@@ -28,7 +27,6 @@ const HomeContent = () => {
     >
 
     <Flex
-      // gap="50px"
       flexWrap="wrap"
       alignItems="center"
       justifyContent="space-between"

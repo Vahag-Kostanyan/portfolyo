@@ -1,3 +1,25 @@
 {
-    "nameSurname": "HI I'M VAHAGN KOSTANYAN"
+    "selectLanguage": "Select language",
+    "english": "English",
+    "armenian": "Armenian",
+    "russian": "Russian",
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "nameSurnameFirstSide": "HI I'M",
+    "nameSurnameLastSide": "VAHAGN KOSTANYAN",
+    "i": "I",
+    "am": "Am",
+    "web": "Web",
+    "developer": "Developer",
+    "personalInfo": "PERSONAL INFOS",
+    "age": "Age",
+    "phone": "Phone:",
+    "experience": "Experience",
+    "nationality": "Nationality",
+    "adress": "Adress",
+    "position": "Position",
+    "months": "8 months"
+
 }

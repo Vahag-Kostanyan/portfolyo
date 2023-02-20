@@ -1,10 +1,16 @@
 import { Button, Flex, Heading, keyframes, useMediaQuery } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"
-import notebook from "../../imags/notebook.png";
-import notebook2 from "../../imags/notebook2.png";
+import todo from "../../imags/todo.png";
+import SASA from "../../imags/SASA.png";
 
 import React, { useState } from 'react';
 import MyCard from '../../components/MyCard';
+
+
+const todoPage = "https://v-todo-list.netlify.app/";
+const todoRepasitory = "https://github.com/Vahag-Kostanyan/todo-list";
+const SASAPage = "https://search-and-sort-algorithms.netlify.app/";
+const SASARepasitory = "https://github.com/Vahag-Kostanyan/search-and-sort-algorithms";
 
 const animation = keyframes`
   0% { opacity: 0; transform: translateY(200px); }
@@ -74,7 +80,7 @@ const ProjectsContent2 = () => {
                 alignItems="center"
                 justifyContent="center"
                 width={isLargerThan1000 ? "80%" : "100%"}
-                padding="20p 10pxx"
+                padding="20p 10px"
                 flexDir={isLargerThan650 ? "row" : "column"}
 
             >
@@ -104,8 +110,8 @@ const ProjectsContent2 = () => {
                     gap="30px"
                     scrollBehavior="smooth"
                 >
-                    <MyCard image={notebook2} />
-                    <MyCard image={notebook} />
+                    <MyCard image={todo} page={todoPage} repasitory={todoRepasitory} />
+                    <MyCard image={SASA}  page={SASAPage} repasitory={SASARepasitory} />
                 </Flex>
 
                 {isLargerThan650 ? (

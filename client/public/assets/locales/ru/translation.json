@@ -1,3 +1,24 @@
 {
-    "nameSurname": "ПРИВЕТ Я ВАГАН КОСТАНЯН"
+    "selectLanguage": "Выберите язык",
+    "english": "Английский",
+    "armenian": "Армянский",
+    "russian": "Русский",
+    "home": "Дом",
+    "skills": "Навыки",
+    "projects": "Проекты",
+    "contacts": "Контакты",
+    "nameSurnameFirstSide": "ПРИВЕТ, Я",
+    "nameSurnameLastSide": "ВАГАН КОСТАНЯН",
+    "i": "Я",
+    "am": "",
+    "web": "веб-разработчик",
+    "developer": "",
+    "personalInfo": "ЛИЧНАЯ ИНФОРМАЦИЯ",
+    "age": "Возраст",
+    "phone": "Телефон",
+    "experience": "Опыт",
+    "nationality": "Национальность",
+    "adress": "Адрес",
+    "position": "Позиция",
+    "months": "8 месяцев"
 }

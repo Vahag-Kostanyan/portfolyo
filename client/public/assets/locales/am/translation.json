@@ -1,3 +1,25 @@
 {
-    "nameSurname": "ԲԱՐԵՎ ԵՍ ՎԱՀԱԳՆ ԿՈՍՏԱՆՅԱՆ ԵՄ"
+    "selectLanguage": "Ընտրել լեզուն",
+    "english": "Անգլերեն",
+    "armenian": "Հայերեն",
+    "russian": "Ռուսերեն",
+    "home": "Տուն",
+    "skills": "Հմտություններ",
+    "projects": "Նախագծեր",
+    "contacts": "Կոնտակտներ",
+    "nameSurnameFirstSide": "ԲԱՐԵՎ ԵՍ` ",
+    "nameSurnameLastSide": "ՎԱՀԱԳՆ ԿՈՍՏԱՆՅԱՆՆ ԵՄ",
+    "i": "Ես",
+    "am": "Վեբ",
+    "web": "Ծրագրավորող",
+    "developer": "Եմ",
+    "personalInfo": "ԱՆՁՆԱԿԱՆ ՏԵՂԵԿՈՒԹՅՈՒՆՆԵՐ",
+    "age": "Տարիք",
+    "phone": "Հեռ",
+    "experience": "Փորձ",
+    "nationality": "Ազգություն",
+    "adress": "Հասցե",
+    "position": "Պաշտոն",
+    "months": "8 ամիս"
+
 }
