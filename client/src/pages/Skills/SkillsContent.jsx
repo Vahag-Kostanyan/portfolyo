@@ -14,6 +14,12 @@ import chakraUI from "../../imags/chakraui.png"
 import redux from "../../imags/redux.png"
 import git from "../../imags/git.png"
 import bootstrap from "../../imags/bootstrap.png"
+import tailwind from "../../imags/tailwindCss.png"
+import nodeJs from "../../imags/nodeJs.png"
+import expressJs from "../../imags/expressJs.png"
+import mongoDb from "../../imags/mongoDb.png"
+import docker from "../../imags/docker.png"
+import linux from "../../imags/linux.png"
 import { useTranslation } from 'react-i18next';
 
 
@@ -41,40 +47,72 @@ const SkillsContent = () => {
       overflowY={isLargerThan650 ? "auto" : ""}
       padding={isLargerThan650 ? "20px 50px 50px" : "20px 50px"}
       height={isLargerThan650 ? "92vh" : "auto"}
-      gap="30px"
+      gap="100px"
       animation={homeTextAnimation}
 
     >
       <Flex
-        flex={2}
-        width="100%"
-        justifyContent="center"
-        alignItems="center"
+        flexDirection={'column'}
+        gap={6}
       >
+        <Flex
+          flex={2}
+          width="100%"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Heading as="h1" size="2xl" textAlign={'center'} > {t('mySkills')} </Heading>
+        </Flex>
+        <Flex
+          flex={10}
+          padding={isLargerThan1500 ? "20px 100px" : "50px 0"}
+          justifyContent="center"
+          gap={isLargerThan580 ? "150px" : "70px"}
 
-        <Heading as="h1" textAlign="center" size="2xl" > {t('mySkills')} </Heading>
-
+          flexWrap="wrap"
+        >
+          <Skill skil={php} skilName={"PHP"} />
+          <Skill skil={laravel} skilName={"Laravel"} />
+          <Skill skil={MySQL} skilName={"MySQL"} />
+          <Skill skil={git} skilName={"Git"} />
+          <Skill skil={html} skilName={"HTML 5"} />
+          <Skill skil={css} skilName={"CSS 3"} />
+          <Skill skil={JavaScript} skilName={"JavaScript"} />
+          <Skill skil={Jquery} skilName={"JQuery"} />
+          <Skill skil={redux} skilName={"Redux"} />
+          <Skill skil={react} skilName={"React JS"} />
+          <Skill skil={chakraUI} skilName={"Chakra UI"} />
+        </Flex>
       </Flex>
       <Flex
-        flex={10}
-        padding={isLargerThan1500 ? "20px 100px" : "50px 0"}
-        justifyContent="space-around"
-        gap={isLargerThan580 ? "150px" : "70px"}
-
-        flexWrap="wrap"
+        flexDirection={'column'}
+        gap={6}
       >
-        <Skill skil={php} skilName={"PHP"} />
-        <Skill skil={laravel} skilName={"Laravel"} />
-        <Skill skil={MySQL} skilName={"MySQL"} />
-        <Skill skil={git} skilName={"Git"} />
-        <Skill skil={html} skilName={"HTML 5"} />
-        <Skill skil={css} skilName={"CSS 3"} />
-        <Skill skil={bootstrap} skilName={"Bootstrap"} />
-        <Skill skil={JavaScript} skilName={"JavaScript"} />
-        <Skill skil={Jquery} skilName={"JQuery"} />
-        <Skill skil={redux} skilName={"Redux"} />
-        <Skill skil={react} skilName={"React JS"} />
-        <Skill skil={chakraUI} skilName={"Chakra UI"} />
+        <Flex
+          flex={2}
+          width="100%"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Heading as="h1" size="2xl" textAlign={'center'} > {t('mySoftSkills')} </Heading>
+        </Flex>
+
+        <Flex
+          flex={10}
+          padding={isLargerThan1500 ? "20px 100px" : "50px 0"}
+          justifyContent="center"
+          gap={isLargerThan580 ? "150px" : "70px"}
+
+          flexWrap="wrap"
+        >
+          <Skill skil={nodeJs} skilName={"Node JS"} />
+          <Skill skil={expressJs} skilName={"Express JS"} />
+          <Skill skil={mongoDb} skilName={"Mongo DB"} />
+          <Skill skil={docker} skilName={"Docker"} />
+          <Skill skil={linux} skilName={"Linux"} />
+          <Skill skil={tailwind} skilName={"Tailwind CSS"} />
+          <Skill skil={bootstrap} skilName={"Bootstrap"} />
+        </Flex>
       </Flex>
     </Flex>
   )
