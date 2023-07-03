@@ -9,19 +9,31 @@ import { AnimatePresence } from 'framer-motion';
 import NavLink from './NavLink';
 import { ChakraProvider, ColorModeProvider, CSSReset, Flex, extendTheme, useMediaQuery } from '@chakra-ui/react';
 import { useState } from 'react';
+import i18next from 'i18next';
 
 
 
+const language = i18next.language
 
-const theme = extendTheme({
-    fonts: {
-      heading: `Roboto`,
-      body: `Roboto`,
-    },
-  })
+let theme = "";
 
+if (language == "am") {
+    theme = extendTheme({
+        fonts: {
+            heading: `Arial`,
+            body: `Arial`,
+        },
+    })
+} else {
+    theme = extendTheme({
+        fonts: {
+            heading: `Roboto`,
+            body: `Roboto`,
+        },
+    })
+}
 const AnimatedRoutes = () => {
-    if(!localStorage.getItem("chakra-ui-color-mode")) {
+    if (!localStorage.getItem("chakra-ui-color-mode")) {
         localStorage.setItem("chakra-ui-color-mode", "dark");
     }
     const location = useLocation();

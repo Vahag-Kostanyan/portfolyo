@@ -13,7 +13,7 @@ const ContactLeftSide = () => {
 
 
   let leftList = [
-    { key: t('phone'), value: "+374 19 58 68" },
+    { key: t('phone'), value: "+374 98 19 58 68" },
     { key: "Linkdin", value: "vahag kostanyan", link: "https://www.linkedin.com/in/vahag-kostanyan-963534249/" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
     { key: t('adress'), value: t('armeniaArmavir') },

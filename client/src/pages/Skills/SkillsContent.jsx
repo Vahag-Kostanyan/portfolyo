@@ -39,7 +39,7 @@ const SkillsContent = () => {
     <Flex
       flexDirection="column"
       overflowY={isLargerThan650 ? "auto" : ""}
-      padding="20px 50px"
+      padding={isLargerThan650 ? "20px 50px 50px" : "20px 50px"}
       height={isLargerThan650 ? "92vh" : "auto"}
       gap="30px"
       animation={homeTextAnimation}
@@ -52,13 +52,13 @@ const SkillsContent = () => {
         alignItems="center"
       >
 
-        <Heading as="h1" size="2xl" > {t('mySkills')} </Heading>
+        <Heading as="h1" textAlign="center" size="2xl" > {t('mySkills')} </Heading>
 
       </Flex>
       <Flex
         flex={10}
         padding={isLargerThan1500 ? "20px 100px" : "50px 0"}
-        justifyContent="center"
+        justifyContent="space-around"
         gap={isLargerThan580 ? "150px" : "70px"}
 
         flexWrap="wrap"

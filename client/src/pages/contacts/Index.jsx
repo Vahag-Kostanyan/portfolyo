@@ -2,15 +2,28 @@ import React from 'react'
 import { extendTheme, ChakraProvider, ColorModeProvider, CSSReset, useColorMode, Flex, useMediaQuery } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import ContactsConent from './ContactsConent'
+import i18next from 'i18next'
 
 function Index({ nextPage }) {
-  const theme = extendTheme({
-    fonts: {
-      heading: `Roboto`,
-      body: `Roboto`,
-    },
-  })
+  const language = i18next.language
 
+  let theme = "";
+
+  if( language == "am" ){
+    theme = extendTheme({
+      fonts: {
+        heading: `Arial`,
+        body: `Arial`,
+      },
+    })
+  }else{
+    theme = extendTheme({
+      fonts: {
+        heading: `Roboto`,
+        body: `Roboto`,
+      },
+    })
+  }
   const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
 
 

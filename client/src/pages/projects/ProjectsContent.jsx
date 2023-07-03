@@ -22,8 +22,9 @@ const animation = keyframes`
 
 const ProjectsContent2 = () => {
     const { t } = useTranslation();
-    const [isLargerThan1000] = useMediaQuery('(min-width: 1000px)')
+    const [isLargerThan1000] = useMediaQuery('(min-width: 1100px)')
     const [isLargerThan650] = useMediaQuery('(min-width: 650px)')
+    const [isHighThan650] = useMediaQuery('(min-height: 650px)')
     const [item, setItem] = useState(1);
     let carussel = document.querySelector(".carussel");
 
@@ -63,6 +64,7 @@ const ProjectsContent2 = () => {
             gap="30px"
             flexDirection="column"
             animation={homeTextAnimation}
+            overflow={!isHighThan650 && isLargerThan650? "scroll" : ""}
         >
             <Flex
                 flex={2}
@@ -81,6 +83,7 @@ const ProjectsContent2 = () => {
                 gap="60px"
                 alignItems="center"
                 justifyContent="center"
+                minH={!isHighThan650 && isLargerThan650 ? "500px" : ""}
                 width={isLargerThan1000 ? "80%" : "100%"}
                 padding="20p 10px"
                 flexDir={isLargerThan650 ? "row" : "column"}
@@ -113,7 +116,7 @@ const ProjectsContent2 = () => {
                     scrollBehavior="smooth"
                 >
                     <MyCard image={todo} page={todoPage} repasitory={todoRepasitory} />
-                    <MyCard image={SASA}  page={SASAPage} repasitory={SASARepasitory} />
+                    <MyCard image={SASA} page={SASAPage} repasitory={SASARepasitory} />
                 </Flex>
 
                 {isLargerThan650 ? (

@@ -20,10 +20,10 @@
     "nationality": "Nationality",
     "adress": "Adress",
     "position": "Position",
-    "months": "8 months",
+    "months": "9 months",
     "junior": "Junior",
-    "armenia": "Armenin",
-    "armeniaArmavir": "Armenia Armavir",
+    "armenia": "Armenian",
+    "armeniaArmavir": "Armenia, Armavir",
     "mySkills": "My Skills",
     "myLastProjects": "My Last Projects",
     "goToPage": "Go to page",
@@ -37,5 +37,5 @@
     "mailFieldIsRequired": "Mail field is required",
     "textFieldIsRequired": "Text field is required",
     "messageSendedSuccessfully": "Message sended successfully",
-    "TextAboutMe": "My approach to web development is collaborative, with an emphasis on communication and attention to detail. Whether you are a small business owner looking to establish an online presence, or a large corporation in need of a complex web application, I am committed to providing you with a tailored solution that meets your unique needs."
+    "TextAboutMe": "My approach to web development is collaborative, with an emphasis on communication and attention to detail. If you are a small business owner looking to establish an online presence, or a large corporation in need of a complex web application, I am ready to provide you with a tailored solution which meets your unique needs."
 }
