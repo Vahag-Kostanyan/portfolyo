@@ -18,11 +18,12 @@ const HomeContent = () => {
   const homeTextAnimation = `${animation} 1 8s`
 
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+  const [isHeighrThan650] = useMediaQuery('(min-height: 650px)')
 
   return (
     <Flex
     height="92vh"
-    overflowY={isLargerThan600 ? "hidden" : "auto"}
+    overflowY={isLargerThan600 && isHeighrThan650 ? "hidden" : "auto"}
     width="100%"
     >
 

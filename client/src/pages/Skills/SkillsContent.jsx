@@ -48,7 +48,7 @@ const SkillsContent = () => {
     <Flex
       flexDirection="column"
       overflowY={isLargerThan650 ? "auto" : ""}
-      padding="20px 50px"
+      padding={isLargerThan650 ? "20px 50px 50px" : "20px 50px"}
       height={isLargerThan650 ? "92vh" : "auto"}
       gap="100px"
       animation={homeTextAnimation}
