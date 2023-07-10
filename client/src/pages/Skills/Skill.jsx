@@ -3,7 +3,7 @@ import React from 'react';
 
 const Skill = ({ skil, skilName }) => {
 
-    
+
     return (
         <Flex
             flexDirection="column"
@@ -30,10 +30,18 @@ const Skill = ({ skil, skilName }) => {
                 justifyContent="center"
                 alignItems="center"
             >
-                <Image
-                    src={skil}
-                    width={skilName == "CSS 3" ? "75%" : "100%"}
-                ></Image>
+                {skilName == 'S.O.L.I.D' ? (
+                    <Image
+                        src={skil}
+                        width={skilName == "CSS 3" ? "75%" : "180%"}
+                    ></Image>
+                ) : (
+                    <Image
+                        src={skil}
+                        width={skilName == "CSS 3" ? "75%" : "100%"}
+                    ></Image>
+                )}
+
             </Flex>
             <Flex
                 flex={3}

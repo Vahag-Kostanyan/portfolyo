@@ -20,6 +20,9 @@ import expressJs from "../../imags/expressJs.png"
 import mongoDb from "../../imags/mongoDb.png"
 import docker from "../../imags/docker.png"
 import linux from "../../imags/linux.png"
+import python from "../../imags/python.png"
+import solid from "../../imags/solid.png"
+import cpp from "../../imags/c++.png"
 import { useTranslation } from 'react-i18next';
 
 
@@ -107,6 +110,9 @@ const SkillsContent = () => {
         >
           <Skill skil={nodeJs} skilName={"Node JS"} />
           <Skill skil={expressJs} skilName={"Express JS"} />
+          <Skill skil={python} skilName={"Python"} />
+          <Skill skil={cpp} skilName={"C++"} />
+          <Skill skil={solid} skilName={"S.O.L.I.D"} />
           <Skill skil={mongoDb} skilName={"Mongo DB"} />
           <Skill skil={docker} skilName={"Docker"} />
           <Skill skil={linux} skilName={"Linux"} />
