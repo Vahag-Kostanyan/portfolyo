@@ -4,12 +4,14 @@ import phpIcon from "../../imags/PHP-logo.svg.png";
 import Skill from './Skill';
 import php from "../../imags/PHP-logo.svg.png"
 import laravel from "../../imags/laravel.png"
+import yii from "../../imags/yii3_sign.png"
 import MySQL from "../../imags/mysql.png"
 import Jquery from "../../imags/jquery.png"
 import html from "../../imags/html.png"
 import css from "../../imags/css.png"
 import JavaScript from "../../imags/javascript.png"
 import react from "../../imags/react.png"
+import ember from "../../imags/ember-tomster-lockup-4c.svg"
 import chakraUI from "../../imags/chakraui.png"
 import redux from "../../imags/redux.png"
 import git from "../../imags/git.png"
@@ -20,6 +22,10 @@ import expressJs from "../../imags/expressJs.png"
 import mongoDb from "../../imags/mongoDb.png"
 import docker from "../../imags/docker.png"
 import linux from "../../imags/linux.png"
+import fierbase from "../../imags/fierbase.png"
+import python from "../../imags/python.png"
+import nestjs from "../../imags/nestjs.png"
+import typescript from "../../imags/typescript.png"
 import { useTranslation } from 'react-i18next';
 
 
@@ -49,7 +55,7 @@ const SkillsContent = () => {
       height={isLargerThan650 ? "92vh" : "auto"}
       gap="100px"
       animation={homeTextAnimation}
-
+      className="scrollbar-hidden"
     >
       <Flex
         flexDirection={'column'}
@@ -73,15 +79,20 @@ const SkillsContent = () => {
         >
           <Skill skil={php} skilName={"PHP"} />
           <Skill skil={laravel} skilName={"Laravel"} />
+          <Skill skil={yii} skilName={"Yii 2"} />
           <Skill skil={MySQL} skilName={"MySQL"} />
           <Skill skil={git} skilName={"Git"} />
           <Skill skil={html} skilName={"HTML 5"} />
           <Skill skil={css} skilName={"CSS 3"} />
           <Skill skil={JavaScript} skilName={"JavaScript"} />
+          <Skill skil={nodeJs} skilName={"Node JS"} />
+          <Skill skil={expressJs} skilName={"Express JS"} />
           <Skill skil={Jquery} skilName={"JQuery"} />
-          <Skill skil={redux} skilName={"Redux"} />
+          <Skill skil={ember} skilName={"Ember"} />
           <Skill skil={react} skilName={"React JS"} />
+          <Skill skil={redux} skilName={"Redux"} />
           <Skill skil={chakraUI} skilName={"Chakra UI"} />
+          <Skill skil={linux} skilName={"Linux"} />
         </Flex>
       </Flex>
       <Flex
@@ -99,17 +110,18 @@ const SkillsContent = () => {
 
         <Flex
           flex={10}
-          padding={isLargerThan1500 ? "20px 100px" : "50px 0"}
+          padding={isLargerThan1500 ? "50px 100px" : "50px 0"}
           justifyContent="center"
           gap={isLargerThan580 ? "150px" : "70px"}
 
           flexWrap="wrap"
         >
-          <Skill skil={nodeJs} skilName={"Node JS"} />
-          <Skill skil={expressJs} skilName={"Express JS"} />
           <Skill skil={mongoDb} skilName={"Mongo DB"} />
+          <Skill skil={fierbase} skilName={"Fierbase"} />
+          <Skill skil={python} skilName={"Python"} />
+          <Skill skil={typescript} skilName={"Type Script"} />
+          <Skill skil={nestjs} skilName={"Nest JS"} />
           <Skill skil={docker} skilName={"Docker"} />
-          <Skill skil={linux} skilName={"Linux"} />
           <Skill skil={tailwind} skilName={"Tailwind CSS"} />
           <Skill skil={bootstrap} skilName={"Bootstrap"} />
         </Flex>

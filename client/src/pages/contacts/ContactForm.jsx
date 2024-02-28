@@ -39,7 +39,7 @@ const ContactForm = ({ errorText, setErrorText, setAlertStatus, onOpen, onClose 
         }
         
         
-        emailjs.sendForm('service_oa6pzap', 'template_kwjnvhh', form.current, 'cQeqpXLR702GWfXyj')
+        emailjs.sendForm('service_oa6pzap', 'template_kwjnvhh', form.current, '2uUQg2XUBnx8-OmLy')
             .then((result) => {
                 setAlertStatus("success")
                 validations(t("messageSendedSuccessfully"))
