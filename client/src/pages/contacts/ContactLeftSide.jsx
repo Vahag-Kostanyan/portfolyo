@@ -73,8 +73,8 @@ const ContactLeftSide = () => {
         })}
 
         <Flex>
-          <a href='cv.pdf'
-            download="cv.pdf"
+          <a href='newCV.pdf'
+            download="newCV.pdf"
           >
             <Button decoration="none" width={150} leftIcon={<FaDownload />} colorScheme='teal' variant='solid'>
               {t('download')} CV

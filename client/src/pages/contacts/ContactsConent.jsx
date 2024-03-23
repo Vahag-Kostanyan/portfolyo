@@ -59,7 +59,6 @@ const ContactsConent2 = () => {
       <Flex
         flex={10}
         flexDirection={isLargerThan1150 ? "row" : "column"}
-        // gap="60px"
         gap={isLargerThan650 ? "60px" : "80px"}
 
       padding={isLargerThan650 ? "20px 90px" : "20px 20px"}
