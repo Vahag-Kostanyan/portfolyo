@@ -14,7 +14,7 @@ const HomeContent = () => {
     let rightList = [
         { key: t('age'), value: "19" },
         { key: t('phone'), value: "+374 98 19 58 68" },
-        { key: "Linkdin", value: "vahag kostanyan", link: "https://www.linkedin.com/in/vahag-kostanyan-963534249/" },
+        { key: "Linkdin", value: "vahag kostanyan", link: "https://www.linkedin.com/in/vahagn-kostanyan" },
         { key: t('experience'), value: t('months') },
         { key: t('nationality'), value: t('armenia') },
         { key: t('adress'), value: t('armeniaArmavir') },

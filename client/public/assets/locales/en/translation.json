@@ -20,8 +20,8 @@
     "nationality": "Nationality",
     "adress": "Adress",
     "position": "Position",
-    "months": "2- year",
-    "junior": "Mid",
+    "months": "2 year",
+    "junior": "Mid-Level",
     "armenia": "Armenian",
     "armeniaArmavir": "Armenia, Armavir",
     "mySkills": "My Skills",
@@ -38,5 +38,5 @@
     "mailFieldIsRequired": "Mail field is required",
     "textFieldIsRequired": "Text field is required",
     "messageSendedSuccessfully": "Message sended successfully",
-    "TextAboutMe": "My approach to web development is collaborative, with an emphasis on communication and attention to detail. If you are a small business owner looking to establish an online presence, or a large corporation in need of a complex web application, I am ready to provide you with a tailored solution which meets your unique needs."
+    "TextAboutMe": "Experienced Full-Stack Web Developer with a strong focus on both front-end and back-end technologies. I. If you are a small business owner looking to establish an online presence, or a large corporation in need of a complex web application, I am ready to provide you with a tailored solution which meets your unique needs."
 }

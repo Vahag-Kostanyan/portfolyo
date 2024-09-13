@@ -14,7 +14,7 @@ const ContactLeftSide = () => {
 
   let leftList = [
     { key: t('phone'), value: "+374 98 19 58 68" },
-    { key: "Linkdin", value: "vahag kostanyan", link: "https://www.linkedin.com/in/vahag-kostanyan-963534249/" },
+    { key: "Linkdin", value: "vahagn kostanyan", link: "https://www.linkedin.com/in/vahagn-kostanyan" },
     { key: "Mail", value: "vahag.kostanyan974@gmail.com" },
     { key: t('adress'), value: t('armeniaArmavir') },
     { key: "Github", value: "Vahag-Kostanyan", link: "https://github.com/Vahag-Kostanyan" },
@@ -73,8 +73,8 @@ const ContactLeftSide = () => {
         })}
 
         <Flex>
-          <a href='newCV.pdf'
-            download="newCV.pdf"
+          <a href='cv.pdf'
+            download="cv.pdf"
           >
             <Button decoration="none" width={150} leftIcon={<FaDownload />} colorScheme='teal' variant='solid'>
               {t('download')} CV

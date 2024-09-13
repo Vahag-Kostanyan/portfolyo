@@ -26,6 +26,8 @@ import fierbase from "../../imags/fierbase.png"
 import python from "../../imags/python.png"
 import nestjs from "../../imags/nestjs.png"
 import typescript from "../../imags/typescript.png"
+import ci_cd from "../../imags/ci-cd.png"
+import apache from "../../imags/apache.png"
 import { useTranslation } from 'react-i18next';
 
 
@@ -116,12 +118,14 @@ const SkillsContent = () => {
 
           flexWrap="wrap"
         >
+          <Skill skil={docker} skilName={"Docker"} />
+          <Skill skil={ci_cd} skilName={"CI-CD"} />
+          <Skill skil={apache} skilName={"Apache 2"} />
           <Skill skil={mongoDb} skilName={"Mongo DB"} />
           <Skill skil={fierbase} skilName={"Fierbase"} />
           <Skill skil={python} skilName={"Python"} />
           <Skill skil={typescript} skilName={"Type Script"} />
           <Skill skil={nestjs} skilName={"Nest JS"} />
-          <Skill skil={docker} skilName={"Docker"} />
           <Skill skil={tailwind} skilName={"Tailwind CSS"} />
           <Skill skil={bootstrap} skilName={"Bootstrap"} />
         </Flex>
